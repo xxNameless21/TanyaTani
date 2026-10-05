@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TanyaTani × IKEA — Premium Gold Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ikea-blue: #0058a3;
+            --ikea-yellow: #fbd914;
+            --gold-primary: #D4AF37;
+            --gold-light: #FFF5C0;
+            --gold-dark: #AA771C;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0B132B;
+            color: #F8FAFC;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Custom Gold Gradients & Animations */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF1B0 0%, #F1C40F 40%, #D4AF37 70%, #9A7B1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 30%, #C5A059 70%, #9B782B 100%);
+        }
+
+        .gold-gradient-btn {
+            background: linear-gradient(135deg, #F39C12 0%, #D4AF37 50%, #B7950B 100%);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+        }
+
+        .gold-gradient-btn:hover {
+            background: linear-gradient(135deg, #F5B041 0%, #F1C40F 50%, #D4AF37 100%);
+            box-shadow: 0 6px 28px rgba(212, 175, 55, 0.55);
+        }
+
+        .glass-gold {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+        }
+
+        .scan-laser {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #F1C40F, #FFF, #F1C40F, transparent);
+            box-shadow: 0 0 15px #F1C40F;
+            animation: scanAnim 2.2s ease-in-out infinite alternate;
+        }
+
+        @keyframes scanAnim {
+            0% { top: 5%; }
+            100% { top: 92%; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-25px, 25px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 9s infinite; }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: {
+                        tanya: {
+                            dark: '#022C22',
+                            primary: '#10B981',
+                            light: '#34D399',
+                            gold: '#D4AF37',
+                        },
+                        ikea: { blue: '#0058A3', yellow: '#FBD914' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-amber-400 selection:text-black">
+
+    <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-700 text-slate-950 font-bold text-xs py-2 px-4 text-center flex justify-center items-center gap-3 shadow-md relative z-50">
+        <span class="bg-black/20 px-2 py-0.5 rounded-full text-[10px] tracking-wider uppercase font-black">Eksklusif Gold</span>
+        <span>Gunakan kupon <strong class="underline decoration-black">GOLD2026</strong> untuk diskon 15% + Bebas Ongkir IKEA Package!</span>
+        <button onclick="dailyCheckIn()" class="bg-black text-amber-300 hover:bg-slate-900 px-3 py-0.5 rounded-full text-[11px] font-black tracking-wide transition-all shadow">
+            <i class="fas fa-coins text-amber-400 mr-1"></i> Check-in Harian (+20 Poin)
+        </button>
+    </div>
+
+    <nav class="glass-gold fixed w-full z-40 top-8 transition-all duration-300 border-b border-amber-500/20" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo Lockup -->
+                <div class="flex items-center cursor-pointer group" onclick="showSection('home')">
+                    <div class="flex items-center gap-3">
+                        <div class="relative w-11 h-11 flex items-center justify-center bg-gradient-to-br from-emerald-950 to-slate-900 rounded-2xl border border-amber-500/40 shadow-lg group-hover:scale-105 transition-all">
+                            <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M42 12C34 16 18 30 18 52C18 72 32 88 50 94C50 94 45 74 52 50C58 28 42 12 42 12Z" fill="#D4AF37"/>
+                                <path d="M52 20C62 24 82 38 82 62C82 80 68 92 50 96C50 96 56 74 48 50C40 28 52 20 52 20Z" fill="#10B981"/>
+                                <path d="M50 54C50 72 48 94 48 94" stroke="#F1C40F" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="font-extrabold text-2xl tracking-tight text-white block leading-none">Tanya<span class="gold-gradient-text">Tani</span></span>
+                            <span class="text-[9px] font-bold text-amber-400/80 tracking-widest uppercase">Gold Luxe Edition</span>
+                        </div>
+                        
+                        <div class="h-6 w-px bg-slate-700 mx-1 hidden sm:block"></div>
+                        <span class="text-amber-400 font-bold text-xs hidden sm:block">×</span>
+                        <div class="h-6 w-px bg-slate-700 mx-1 hidden sm:block"></div>
+                        
+                        <div class="bg-ikea-blue hidden sm:flex items-center justify-center px-2.5 py-1 rounded-lg shadow-md border border-yellow-400/30">
+                            <span class="text-ikea-yellow font-black tracking-widest text-[10px] uppercase">IKEA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <button onclick="showSection('home')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all">Beranda</button>
+                    <button onclick="showSection('konsultasi')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all">AI Leaf Scanner</button>
+                    <button onclick="showSection('expert')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all flex items-center gap-1.5"><i class="fas fa-user-md text-amber-400"></i> Konsul Ahli</button>
+                    <button onclick="showSection('planner')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all">Room Planner</button>
+                    <button onclick="showSection('market')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all">Market</button>
+                    <button onclick="showSection('tanampedia')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all">TanamPedia & Jadwal</button>
+                    <button onclick="showSection('komunitas')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all">Komunitas</button>
+                    
+                    <div class="flex items-center gap-3 pl-3 ml-1 border-l border-slate-700/80">
+                        <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-500/20 to-yellow-500/10 border border-amber-500/40 text-amber-300 rounded-full text-xs font-black shadow-inner" title="Poin Saya">
+                            <i class="fas fa-coins text-amber-400"></i> <span id="user-points-display">250</span> Pts
+                        </div>
+                        
+                        <!-- Cart Icon Button -->
+                        <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-amber-300 border border-amber-500/30 transition-all">
+                            <i class="fas fa-shopping-bag text-base"></i>
+                            <span id="cart-badge-nav" class="absolute -top-1 -right-1 bg-amber-500 text-slate-950 font-black text-[10px] w-5 h-5 flex items-center justify-center rounded-full border border-slate-900 hidden">0</span>
+                        </button>
+
+                        <div id="auth-action-container">
+                            <button onclick="toggleModal('loginModal')" class="gold-gradient-btn text-slate-950 px-4 py-2 rounded-full text-xs font-black transition-all transform hover:-translate-y-0.5">Masuk VIP</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Header Right -->
+                <div class="flex items-center lg:hidden gap-3">
+                    <button onclick="toggleCart()" class="relative p-2 rounded-full bg-slate-800 text-amber-300 border border-amber-500/30">
+                        <i class="fas fa-shopping-bag text-sm"></i>
+                        <span id="mobile-cart-badge" class="absolute -top-1 -right-1 bg-amber-500 text-black font-black text-[9px] w-4 h-4 flex items-center justify-center rounded-full hidden">0</span>
+                    </button>
+                    <button type="button" onclick="toggleMobileMenu()" class="p-2.5 rounded-2xl bg-slate-800 text-amber-400 hover:bg-slate-700 border border-amber-500/30 transition-colors">
+                        <i class="fas fa-bars text-base" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="lg:hidden hidden absolute top-20 left-0 w-full glass-gold shadow-2xl border-b border-amber-500/30" id="mobile-menu">
+            <div class="px-5 py-6 space-y-2.5">
+                <button onclick="showSection('home'); toggleMobileMenu()" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/80 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-home text-amber-400"></i> Beranda</div>
+                    <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
+                </button>
+                <button onclick="showSection('konsultasi'); toggleMobileMenu()" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/80 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-camera text-amber-400"></i> AI Leaf Scanner & Diagnosa</div>
+                    <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
+                </button>
+                <button onclick="showSection('expert'); toggleMobileMenu()" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/80 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-user-md text-amber-400"></i> Konsultasi Dokter & Ahli</div>
+                    <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
+                </button>
+                <button onclick="showSection('planner'); toggleMobileMenu()" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/80 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-compass text-amber-400"></i> Room & Lighting Planner</div>
+                    <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
+                </button>
+                <button onclick="showSection('market'); toggleMobileMenu()" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/80 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-store text-amber-400"></i> TanyaTani Market (12+ Katalog)</div>
+                    <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
+                </button>
+                <button onclick="showSection('tanampedia'); toggleMobileMenu()" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/80 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-calendar-alt text-amber-400"></i> TanamPedia & Kalender Rutinitas</div>
+                    <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
+                </button>
+                <button onclick="showSection('komunitas'); toggleMobileMenu()" class="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/80 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="flex items-center gap-3"><i class="fas fa-users text-amber-400"></i> Komunitas & Inspirasi</div>
+                    <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="pt-28 pb-28 min-h-screen">
+
+        <section id="home-section" class="fade-in">
+            <div class="relative overflow-hidden min-h-[85vh] flex items-center border-b border-amber-500/20">
+                <div class="absolute top-10 -left-10 w-96 h-96 bg-emerald-600/20 rounded-full mix-blend-screen filter blur-3xl animate-blob"></div>
+                <div class="absolute top-20 right-0 w-96 h-96 bg-amber-500/15 rounded-full mix-blend-screen filter blur-3xl animate-blob animation-delay-2000"></div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12">
+                    <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+                        
+                        <div class="sm:text-center lg:col-span-7 lg:text-left mb-12 lg:mb-0">
+                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 shadow-xl mb-6">
+                                <span class="flex h-2.5 w-2.5 rounded-full bg-amber-400 animate-ping"></span>
+                                <span class="text-xs font-black gold-gradient-text uppercase tracking-widest">Kolaborasi Eksklusif 2026</span>
+                            </div>
+                            
+                            <h1 class="text-5xl tracking-tight font-black text-white sm:text-6xl md:text-7xl lg:leading-[1.1]">
+                                Sentuhan Asri. <br>
+                                <span class="gold-gradient-text">Kemewahan Alami</span> di Rumah Anda.
+                            </h1>
+                            <p class="mt-6 text-base text-slate-300 sm:text-lg lg:text-xl max-w-2xl font-medium leading-relaxed">
+                                Paduan kecerdasan botani AI terkini dari TanyaTani dengan estetika furnitur ikonik IKEA. Konsultasi langsung dengan dokter tanaman, pantau jadwal perawatan harian, dan ciptakan *Plant Corner* impian.
+                            </p>
+                            
+                            <div class="mt-8 flex flex-col sm:flex-row gap-4 sm:justify-center lg:justify-start">
+                                <button onclick="showSection('konsultasi')" class="gold-gradient-btn text-slate-950 font-black px-8 py-4 rounded-full text-base transition-all flex items-center justify-center gap-3">
+                                    <i class="fas fa-camera text-slate-950"></i> Coba AI Leaf Scanner
+                                </button>
+                                <button onclick="showSection('expert')" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-amber-300 bg-slate-900/80 border border-amber-500/40 rounded-full hover:bg-slate-800 transition-all shadow-lg">
+                                    <i class="fas fa-user-md text-amber-400 mr-2"></i> Konsultasi Ahli
+                                </button>
+                            </div>
+
+                            <div class="mt-12 grid grid-cols-3 gap-4 border-t border-slate-800 pt-6">
+                                <div>
+                                    <p class="text-2xl font-black text-white">99.4%</p>
+                                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mt-0.5">Akurasi AI Botani</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-black gold-gradient-text">15.000+</p>
+                                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mt-0.5">Paket IKEA Terjual</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-black text-emerald-400">100%</p>
+                                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mt-0.5">Plant Guarantee</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 relative z-10">
+                            <div class="relative w-full max-w-md mx-auto">
+                                <div class="glass-gold p-4 rounded-[2.5rem] gold-glow relative">
+                                    <div class="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
+                                        <img src="https://images.unsplash.com/photo-1604762512526-b7ce049b5764?auto=format&fit=crop&w=1000&q=80" alt="IKEA Plant Corner Luxe" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                        
+                                        <div class="absolute top-4 right-4 bg-slate-900/90 border border-amber-500/50 backdrop-blur px-3 py-1.5 rounded-full text-xs font-black text-amber-300 flex items-center gap-1.5 shadow-xl">
+                                            <i class="fas fa-crown text-amber-400"></i> Top Selected
+                                        </div>
+
+                                        <div class="absolute bottom-6 left-6 right-6">
+                                            <span class="bg-amber-400 text-black text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider mb-2 inline-block">IKEA SATSUMAS Setup</span>
+                                            <h3 class="text-xl font-black text-white">Monstera Deliciosa Luxe</h3>
+                                            <p class="text-xs text-slate-300 mt-1 font-medium">Terhubung langsung dengan penanganan penyakit dan kalender perawatan harian.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ECOSYSTEM FEATURE CARDS -->
+            <div class="py-20 bg-slate-950/60">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-14">
+                        <h2 class="text-3xl font-black text-white tracking-tight">Ekosistem Perawatan Serba Digital</h2>
+                        <p class="text-slate-400 text-sm mt-2 font-medium">Dirancang khusus untuk pecinta tanaman modern yang mengutamakan kepraktisan dan estetika.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="glass-card p-6 rounded-[2rem] hover:border-amber-500/50 transition-all cursor-pointer group" onclick="showSection('konsultasi')">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-slate-950 flex items-center justify-center text-xl font-black mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="text-lg font-black text-white mb-2 group-hover:text-amber-300 transition-colors">AI Health Scanner</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed font-medium">Deteksi penyakit, hama, hingga tingkat klorofil daun secara instan dengan foto AI.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-[2rem] hover:border-amber-500/50 transition-all cursor-pointer group" onclick="showSection('expert')">
+                            <div class="w-12 h-12 rounded-2xl gold-gradient-bg text-slate-950 flex items-center justify-center text-xl font-black mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h3 class="text-lg font-black text-white mb-2 group-hover:text-amber-300 transition-colors">Konsultasi Dokter Ahli</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed font-medium">Konsultasi langsung dengan agronomis & dokter spesialis tanaman terpercaya secara real-time.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-[2rem] hover:border-amber-500/50 transition-all cursor-pointer group" onclick="showSection('planner')">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-600 text-slate-950 flex items-center justify-center text-xl font-black mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                            <h3 class="text-lg font-black text-white mb-2 group-hover:text-amber-300 transition-colors">Room & Light Planner</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed font-medium">Kalkulator kesesuaian pencahayaan ruangan dan rekomendasi penataan produk IKEA.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-[2rem] hover:border-amber-500/50 transition-all cursor-pointer group" onclick="showSection('tanampedia')">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-800 text-yellow-300 flex items-center justify-center text-xl font-black mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3 class="text-lg font-black text-white mb-2 group-hover:text-amber-300 transition-colors">Kalender Rutinitas</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed font-medium">Atur jadwal penyiraman & pemupukan harian bergaya Google Calendar untuk masa depan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="konsultasi-section" class="hidden fade-in">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-2 inline-block">AI Diagnostic Clinic</span>
+                    <h2 class="text-3xl font-black text-white">Pemindai Kesehatan Tanaman AI</h2>
+                    <p class="text-slate-400 text-xs mt-1">Unggah foto daun yang bermasalah untuk memperoleh diagnosis akurat kurang dari 3 detik.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <div class="lg:col-span-7 glass-gold p-6 rounded-[2.5rem]">
+                        <div class="relative border-2 border-dashed border-amber-500/40 rounded-[2rem] bg-slate-900/80 p-8 text-center overflow-hidden min-h-[340px] flex flex-col justify-center items-center" id="scanner-dropzone">
+                            
+                            <div class="scan-laser hidden" id="scan-laser-line"></div>
+
+                            <div id="scanner-idle-state">
+                                <div class="w-20 h-20 gold-gradient-bg text-slate-950 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-xl">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <h3 class="text-lg font-black text-white mb-1">Unggah Foto Daun Bermasalah</h3>
+                                <p class="text-slate-400 text-xs max-w-xs mx-auto mb-6">Format JPG / PNG. Pastikan pencahayaan terang dan terfokus pada bagian yang sakit.</p>
+                                
+                                <div class="flex gap-3 justify-center">
+                                    <button onclick="triggerFileInput()" class="gold-gradient-btn text-slate-950 font-black px-6 py-3 rounded-full text-xs shadow-lg flex items-center gap-2">
+                                        <i class="fas fa-upload"></i> Pilih Foto
+                                    </button>
+                                    <button onclick="runDemoScan()" class="bg-slate-800 text-amber-300 border border-amber-500/30 font-bold px-5 py-3 rounded-full text-xs hover:bg-slate-700 transition-all">
+                                        <i class="fas fa-play text-xs"></i> Coba Demo Visual
+                                    </button>
+                                </div>
+                                <input type="file" id="file-upload-input" class="hidden" accept="image/*" onchange="handleFileSelected(event)">
+                            </div>
+
+                            <div id="scanner-active-state" class="hidden w-full flex flex-col items-center">
+                                <div class="relative w-64 h-64 rounded-2xl overflow-hidden mb-4 border-2 border-amber-400">
+                                    <img id="scan-preview-img" src="https://images.unsplash.com/photo-1614594975525-e45190c55d40?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover">
+                                </div>
+                                <p class="text-amber-300 font-bold text-xs animate-pulse flex items-center gap-2" id="scan-status-text">
+                                    <i class="fas fa-spinner fa-spin"></i> Menganalisis piksel klorofil & pola infeksi...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/30 min-h-[380px]" id="diagnosis-result-box">
+                            <div class="text-center py-10" id="diagnosis-placeholder">
+                                <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-slate-500 mx-auto mb-3 text-2xl">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <h4 class="text-sm font-bold text-slate-300">Belum Ada Diagnosis</h4>
+                                <p class="text-xs text-slate-500 mt-1 max-w-xs mx-auto">Jalankan pemindaian foto di sebelah kiri untuk melihat rekomendasi penanganan dokter AI.</p>
+                            </div>
+
+                            <div id="diagnosis-actual-result" class="hidden space-y-4">
+                                <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                                    <div>
+                                        <span class="bg-red-500/20 text-red-400 text-[10px] font-black px-2.5 py-0.5 rounded-full border border-red-500/30 uppercase">Terdeteksi Masalah</span>
+                                        <h3 class="text-lg font-black text-white mt-1">Defisiensi Nitrogen & Overwatering</h3>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-2xl font-black text-amber-400">89%</span>
+                                        <p class="text-[9px] text-slate-400 uppercase font-bold">Akurasi AI</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2 text-xs text-slate-300">
+                                    <p><strong>Gejala Utama:</strong> Daun bagian bawah menguning, tekstur lunak, dan media tanah terlalu basah.</p>
+                                    <p><strong>Rekomendasi Penanganan:</strong></p>
+                                    <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                        <li>Kurangi frekuensi penyiraman menjadi 1x tiap 5 hari.</li>
+                                        <li>Berikan **Pupuk Organik Klorofil Gold** untuk pemulihan klorofil.</li>
+                                        <li>Ganti ke pot bercelah drainase presisi (IKEA FÖRENLIG).</li>
+                                    </ul>
+                                </div>
+
+                                <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-between">
+                                    <div>
+                                        <p class="text-[10px] font-black uppercase text-amber-400">Paket Solusi Disarankan</p>
+                                        <p class="text-xs font-bold text-white">Pupuk Cair Klorofil Gold</p>
+                                    </div>
+                                    <button onclick="addToCart('p4')" class="gold-gradient-btn text-slate-950 text-xs font-black px-3 py-1.5 rounded-xl shadow">
+                                        + Rp 45.000
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="expert-section" class="hidden fade-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-2 inline-block">Layanan Spesialis Real-time</span>
+                    <h2 class="text-3xl font-black text-white">Konsultasi dengan Ahli & Dokter Tanaman</h2>
+                    <p class="text-slate-400 text-xs mt-1">Dapatkan saran ahli botani, spesialis hama, dan desainer lanskap tanaman indoor IKEA secara langsung.</p>
+                </div>
+
+                <!-- Expert Category Filters -->
+                <div class="flex justify-center gap-2 mb-8 overflow-x-auto no-scrollbar pb-2">
+                    <button onclick="filterExperts('all')" class="expert-filter-btn px-4 py-2 rounded-full text-xs font-black bg-amber-400 text-slate-950 shadow-md">Semua Ahli</button>
+                    <button onclick="filterExperts('doctor')" class="expert-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Dokter Hama & Penyakit</button>
+                    <button onclick="filterExperts('nutrition')" class="expert-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Pakar Nutrisi & Media</button>
+                    <button onclick="filterExperts('designer')" class="expert-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Desainer Indoor IKEA</button>
+                </div>
+
+                <!-- Expert Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="expert-grid-container">
+                    <!-- Expert 1 -->
+                    <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/30 relative flex flex-col justify-between group hover:border-amber-400 transition-all" data-category="doctor">
+                        <div class="absolute top-5 right-5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Online
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80" class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
+                                <div>
+                                    <h3 class="text-base font-black text-white">Dr. Aris Purnama, M.Si</h3>
+                                    <p class="text-xs text-amber-400 font-bold">Spesialis Monstera & Hama Tropis</p>
+                                    <div class="flex items-center gap-1 text-xs text-yellow-400 mt-1">
+                                        <i class="fas fa-star text-[10px]"></i> <span class="font-black text-white">4.9</span> <span class="text-slate-400 text-[10px]">(142 Sesi)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-6">Pengalaman 12+ tahun menangani penyakit pembusukan akar, hama jamur, dan klorosis daun pada tanaman hias indoor.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex gap-2">
+                            <button onclick="openDoctorChat('Dr. Aris Purnama, M.Si', 'Spesialis Monstera & Hama')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
+                                <i class="fas fa-comments"></i> Chat Sekarang
+                            </button>
+                            <button onclick="openBookingModal('Dr. Aris Purnama, M.Si')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
+                                <i class="far fa-calendar-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Expert 2 -->
+                    <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/30 relative flex flex-col justify-between group hover:border-amber-400 transition-all" data-category="nutrition">
+                        <div class="absolute top-5 right-5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Online
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1594824813566-7885a3977336?auto=format&fit=crop&w=300&q=80" class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
+                                <div>
+                                    <h3 class="text-base font-black text-white">Maya Indah, S.P.</h3>
+                                    <p class="text-xs text-amber-400 font-bold">Pakar Nutrisi Soil & Hydroponics</p>
+                                    <div class="flex items-center gap-1 text-xs text-yellow-400 mt-1">
+                                        <i class="fas fa-star text-[10px]"></i> <span class="font-black text-white">5.0</span> <span class="text-slate-400 text-[10px]">(98 Sesi)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-6">Konsultan formula racikan pupuk mikro/makro dan penyesuaian pH tanah untuk pertumbuhan daun lebar dan rimbun.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex gap-2">
+                            <button onclick="openDoctorChat('Maya Indah, S.P.', 'Pakar Nutrisi Tanah')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
+                                <i class="fas fa-comments"></i> Chat Sekarang
+                            </button>
+                            <button onclick="openBookingModal('Maya Indah, S.P.')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
+                                <i class="far fa-calendar-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Expert 3 -->
+                    <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/30 relative flex flex-col justify-between group hover:border-amber-400 transition-all" data-category="designer">
+                        <div class="absolute top-5 right-5 bg-amber-500/20 text-amber-400 border border-amber-500/40 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase flex items-center gap-1">
+                            <i class="far fa-clock"></i> Tersedia Hari Ini
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
+                                <div>
+                                    <h3 class="text-base font-black text-white">Hendra Wijaya</h3>
+                                    <p class="text-xs text-amber-400 font-bold">Plant Interior Specialist IKEA</p>
+                                    <div class="flex items-center gap-1 text-xs text-yellow-400 mt-1">
+                                        <i class="fas fa-star text-[10px]"></i> <span class="font-black text-white">4.8</span> <span class="text-slate-400 text-[10px]">(210 Sesi)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-6">Ahli penataan *Plant Corner* indoor rumah, memadukan jenis pot IKEA, rak SATSUMAS, dan estetika lampu pencahayaan.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex gap-2">
+                            <button onclick="openDoctorChat('Hendra Wijaya', 'IKEA Plant Specialist')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
+                                <i class="fas fa-comments"></i> Chat Sekarang
+                            </button>
+                            <button onclick="openBookingModal('Hendra Wijaya')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
+                                <i class="far fa-calendar-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planner-section" class="hidden fade-in">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-2 inline-block">IKEA Space Wizard</span>
+                    <h2 class="text-3xl font-black text-white">Kalkulator Planner Ruangan</h2>
+                    <p class="text-slate-400 text-xs mt-1">Temukan kombinasi tanaman hias dan furnitur IKEA yang paling ideal untuk pencahayaan rumah Anda.</p>
+                </div>
+
+                <div class="glass-gold p-8 rounded-[2.5rem]">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div>
+                            <label class="block text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">1. Lokasi Ruangan</label>
+                            <select id="plan-room" class="w-full bg-slate-900 border border-slate-700 text-white rounded-2xl p-3.5 text-xs font-bold focus:border-amber-400 outline-none">
+                                <option value="living">Ruang Tamu / Utama</option>
+                                <option value="work">Meja Kerja / Kamar</option>
+                                <option value="balcony">Balkon / Semi-Outdoor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">2. Tingkat Sinar Matahari</label>
+                            <select id="plan-light" class="w-full bg-slate-900 border border-slate-700 text-white rounded-2xl p-3.5 text-xs font-bold focus:border-amber-400 outline-none">
+                                <option value="bright">Terang Tak Langsung (Jendela)</option>
+                                <option value="low">Rendah / Minim Cahaya (Ruang AC)</option>
+                                <option value="direct">Matahari Langsung (Balkon)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">3. Gaya Estetika IKEA</label>
+                            <select id="plan-style" class="w-full bg-slate-900 border border-slate-700 text-white rounded-2xl p-3.5 text-xs font-bold focus:border-amber-400 outline-none">
+                                <option value="minimalist">Minimalis Scandi (Kayu/Putih)</option>
+                                <option value="jungle">Urban Jungle (Rimbun Vertical)</option>
+                                <option value="modern">Modern Industrial (Besi/Hitam)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button onclick="calculateRoomPlan()" class="w-full gold-gradient-btn text-slate-950 font-black py-4 rounded-2xl text-sm shadow-xl flex items-center justify-center gap-2">
+                        <i class="fas fa-magic"></i> Generate Rekomendasi Sudut Hijau
+                    </button>
+
+                    <div id="planner-result-card" class="hidden mt-8 p-6 bg-slate-900/90 border border-amber-500/40 rounded-3xl fade-in">
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <img id="planner-img" src="https://images.unsplash.com/photo-1615800098779-1be32e60cca3?auto=format&fit=crop&w=600&q=80" class="w-full md:w-48 h-48 rounded-2xl object-cover">
+                            <div class="flex-1">
+                                <span class="bg-amber-400 text-black font-black text-[10px] px-2.5 py-0.5 rounded uppercase">Hasil Rekomendasi Terhitung</span>
+                                <h3 class="text-2xl font-black text-white mt-1" id="planner-title">Living Oasis Package</h3>
+                                <p class="text-xs text-slate-300 mt-2 leading-relaxed" id="planner-desc">Sangat cocok untuk ruang tamu dengan pencahayaan terang tak langsung. Dikombinasikan dengan Rak SATSUMAS IKEA.</p>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <div>
+                                        <p class="text-[10px] text-slate-400 uppercase font-bold">Total Estimasi Paket</p>
+                                        <p class="text-xl font-black gold-gradient-text" id="planner-price">Rp 599.000</p>
+                                    </div>
+                                    <button onclick="addToCart('p1')" class="gold-gradient-btn text-slate-950 font-black px-5 py-2.5 rounded-xl text-xs shadow">
+                                        + Beli Paket Ini
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market-section" class="hidden fade-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <!-- Market Search Bar & Filter Categories -->
+                <div class="glass-gold p-4 rounded-2xl mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="relative w-full md:w-96">
+                        <input type="text" id="market-search" placeholder="Cari Monstera, Rak SATSUMAS, Pot, Lampu..." oninput="filterMarketProducts()" class="w-full pl-10 pr-4 py-3 bg-slate-900/90 border border-slate-700 rounded-xl text-xs text-white placeholder-slate-500 focus:border-amber-400 outline-none">
+                        <i class="fas fa-search absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
+                    </div>
+                    <div class="flex gap-2 overflow-x-auto no-scrollbar w-full md:w-auto">
+                        <button onclick="filterCategory('semua')" class="market-tab-btn px-4 py-2 rounded-full text-xs font-black bg-amber-400 text-slate-950">Semua</button>
+                        <button onclick="filterCategory('paket')" class="market-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Paket IKEA</button>
+                        <button onclick="filterCategory('tanaman')" class="market-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Tanaman Hias</button>
+                        <button onclick="filterCategory('furnitur')" class="market-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Furnitur IKEA</button>
+                        <button onclick="filterCategory('media')" class="market-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Pupuk & Media</button>
+                        <button onclick="filterCategory('aksesori')" class="market-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">Aksesori</button>
+                    </div>
+                </div>
+
+                <!-- Expanded Product Grid (12 Items) -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="product-grid-container"></div>
+            </div>
+        </section>
+
+        <section id="tanampedia-section" class="hidden fade-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Water Calculator & Google Calendar Routine Widget -->
+                    <div class="lg:col-span-6 glass-gold p-6 rounded-[2.5rem]">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="bg-amber-400 text-black text-[10px] font-black px-2.5 py-0.5 rounded uppercase">Fitur Kalender Cerdas</span>
+                                <h3 class="text-xl font-black text-white mt-1"><i class="fas fa-calendar-check text-emerald-400 mr-2"></i>Rutinitas & Kalender Perawatan</h3>
+                            </div>
+                            <button onclick="toggleScheduleModal()" class="gold-gradient-btn text-slate-950 px-3.5 py-2 rounded-xl text-xs font-black shadow flex items-center gap-1">
+                                <i class="fas fa-plus"></i> Tambah Jadwal
+                            </button>
+                        </div>
+
+                        <!-- Google Calendar Style Date Picker Strip -->
+                        <div class="bg-slate-900/90 border border-slate-800 p-3 rounded-2xl mb-6">
+                            <div class="flex justify-between items-center mb-3 text-xs px-2">
+                                <span class="font-black text-amber-300 flex items-center gap-2" id="calendar-month-year">
+                                    <i class="far fa-calendar-alt text-amber-400"></i> Oktober 2026
+                                </span>
+                                <div class="flex gap-1">
+                                    <button onclick="shiftCalendarWeek(-1)" class="w-6 h-6 rounded bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center text-xs"><i class="fas fa-chevron-left"></i></button>
+                                    <button onclick="shiftCalendarWeek(1)" class="w-6 h-6 rounded bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center text-xs"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Calendar Date Pills -->
+                            <div class="grid grid-cols-7 gap-1 text-center" id="calendar-days-container"></div>
+                        </div>
+
+                        <!-- Schedule Routine Task List Filtered by Date -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center px-1">
+                                <h4 class="font-bold text-xs text-slate-300 uppercase tracking-wider" id="active-schedule-date-title">Tugas Tanggal Ini</h4>
+                                <span class="text-[10px] font-black text-amber-400" id="active-schedule-count">0 Tugas</span>
+                            </div>
+                            <div class="space-y-2.5 min-h-[160px]" id="schedule-list-container"></div>
+                        </div>
+
+                        <!-- Water Calculator Form -->
+                        <div class="mt-8 pt-6 border-t border-slate-800">
+                            <h4 class="font-black text-sm text-white mb-3 flex items-center gap-2"><i class="fas fa-tint text-blue-400"></i> Kalkulator Takaran Air & Nutrisi</h4>
+                            <div class="grid grid-cols-2 gap-3 mb-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1 uppercase">Jenis Tanaman</label>
+                                    <select id="water-plant-type" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 text-xs outline-none">
+                                        <option value="monstera">Monstera Deliciosa (Tropis)</option>
+                                        <option value="succulent">Sukulen / Kaktus (Sangat Kering)</option>
+                                        <option value="pothos">Sirih Gading (Pothos)</option>
+                                        <option value="fiddle">Ketapang Biola (Fiddle)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1 uppercase">Diameter Pot (cm)</label>
+                                    <input type="number" id="water-pot-size" value="20" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 text-xs outline-none">
+                                </div>
+                            </div>
+                            <button onclick="calculateWatering()" class="w-full bg-slate-800 text-amber-300 border border-amber-500/30 hover:bg-slate-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                                Hitung & Tambahkan ke Kalender Otomatis
+                            </button>
+
+                            <div id="water-calc-result" class="hidden mt-3 p-3 bg-slate-900 rounded-xl border border-blue-500/30 text-xs">
+                                <p class="text-blue-300 font-bold">Rekomendasi Terhitung:</p>
+                                <p class="text-white font-medium">Siram tiap <strong id="calc-days" class="text-amber-400">4 hari</strong> sekali sebanyak <strong id="calc-volume" class="text-amber-400">350 ml</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botani Masterclass Articles -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/20 flex flex-col md:flex-row gap-6 items-center">
+                            <img src="https://images.unsplash.com/photo-1416879598555-220f86641e73?auto=format&fit=crop&w=600&q=80" class="w-full md:w-48 h-40 rounded-2xl object-cover">
+                            <div>
+                                <span class="text-amber-400 text-[10px] font-black uppercase tracking-wider">Botani Masterclass</span>
+                                <h3 class="text-lg font-black text-white mt-1">Panduan Membuat Daun Monstera Bertoreh Lebar</h3>
+                                <p class="text-slate-400 text-xs mt-2 leading-relaxed">Torehan alami daun Monstera sangat bergantung pada intensitas sinar matahari terdistribusi dan kelembapan ruangan.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/20 flex flex-col md:flex-row gap-6 items-center">
+                            <img src="https://images.unsplash.com/photo-1617173945092-1c6622e5b651?auto=format&fit=crop&w=600&q=80" class="w-full md:w-48 h-40 rounded-2xl object-cover">
+                            <div>
+                                <span class="text-amber-400 text-[10px] font-black uppercase tracking-wider">IKEA Hacks</span>
+                                <h3 class="text-lg font-black text-white mt-1">Trik Layering Rak SATSUMAS IKEA</h3>
+                                <p class="text-slate-400 text-xs mt-2 leading-relaxed">Posisikan tanaman menjuntai di bagian rak atas dan pot berbobot berat di bagian dasarnya untuk menciptakan kedalaman visual.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/20 flex flex-col md:flex-row gap-6 items-center">
+                            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80" class="w-full md:w-48 h-40 rounded-2xl object-cover">
+                            <div>
+                                <span class="text-amber-400 text-[10px] font-black uppercase tracking-wider">Tips Nutrisi</span>
+                                <h3 class="text-lg font-black text-white mt-1">Pentingnya Dosis Magnesium Klorofil</h3>
+                                <p class="text-slate-400 text-xs mt-2 leading-relaxed">Cegah daun bagian bawah yang menguning akibat akumulasi air berlebih dengan penyemprotan pupuk cair secara teratur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="komunitas-section" class="hidden fade-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-2 inline-block">Showcase Sudut Hijau</span>
+                    <h2 class="text-3xl font-black text-white">Inspirasi Komunitas TanyaTani</h2>
+                    <p class="text-slate-400 text-xs mt-1">Lihat bagaimana pengguna lain menata tanaman hias dan furnitur IKEA di hunian mereka.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="community-feed-grid"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="cartModal" class="fixed inset-0 z-[80] hidden bg-slate-950/80 backdrop-blur-md">
+        <div class="absolute inset-y-0 right-0 max-w-md w-full glass-gold shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cartPanel">
+            <div class="p-6 border-b border-slate-800 flex justify-between items-center">
+                <h3 class="text-lg font-black text-white flex items-center gap-2"><i class="fas fa-shopping-bag text-amber-400"></i> Tas Belanja VIP</h3>
+                <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-6" id="cart-items-container">
+                <p class="text-[10px] font-bold text-amber-400/80 uppercase tracking-widest mb-3 flex items-center gap-1">
+                    <i class="fas fa-hand-pointer text-xs"></i> Geser (swipe) item ke kiri untuk menghapus
+                </p>
+
+                <div class="space-y-4 mb-6" id="cart-items-list">
+                    <div class="text-center py-16 text-slate-500" id="cart-empty-msg">
+                        <i class="fas fa-box-open text-5xl mb-3 opacity-40"></i>
+                        <p class="font-bold text-sm">Keranjang Anda Masih Kosong</p>
+                    </div>
+                </div>
+
+                <!-- Cross-sell Cart Recommendations -->
+                <div class="border-t border-slate-800 pt-5 hidden" id="cart-recommendations-wrapper">
+                    <h4 class="text-[10px] font-black text-amber-400 uppercase tracking-wider mb-3">Sempurnakan Belanjaanmu</h4>
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2" id="cart-recommendations"></div>
+                </div>
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="p-6 border-t border-slate-800 bg-slate-900/90 space-y-4">
+                <div class="flex gap-2">
+                    <input type="text" id="voucher-input" placeholder="Kode Kupon (cth: GOLD2026)" class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white uppercase font-bold outline-none">
+                    <button onclick="applyVoucher()" class="bg-slate-800 text-amber-300 border border-amber-500/30 font-bold px-4 rounded-xl text-xs hover:bg-slate-700">Gunakan</button>
+                </div>
+
+                <div class="space-y-1 text-xs">
+                    <div class="flex justify-between text-slate-400"><span>Subtotal</span><span id="cart-subtotal">Rp 0</span></div>
+                    <div class="flex justify-between text-emerald-400"><span>Diskon Kupon</span><span id="cart-discount">- Rp 0</span></div>
+                    <div class="flex justify-between text-white font-black text-base pt-2 border-t border-slate-800">
+                        <span>Total Tagihan</span><span class="gold-gradient-text" id="cart-total-price">Rp 0</span>
+                    </div>
+                </div>
+
+                <button onclick="openCheckout()" class="w-full gold-gradient-btn text-slate-950 font-black py-3.5 rounded-xl text-xs shadow-xl">
+                    Lanjut Ke Pembayaran QRIS / VA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="fixed inset-0 z-[90] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-gold rounded-[2.5rem] w-full max-w-md p-6 border border-amber-500/40 relative">
+            <button onclick="closeCheckout()" class="absolute top-6 right-6 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-black text-white mb-1">Pembayaran Pesanan</h3>
+            <p class="text-xs text-slate-400 mb-6">Selesaikan transfer sebelum batas waktu berakhir.</p>
+
+            <div class="p-4 bg-slate-900 rounded-2xl border border-amber-500/30 mb-6 text-center">
+                <p class="text-[10px] text-slate-400 uppercase font-bold">Total Pembayaran</p>
+                <p class="text-3xl font-black gold-gradient-text my-1" id="checkout-final-price">Rp 0</p>
+                <span class="text-xs text-red-400 font-bold bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 inline-block mt-1">
+                    <i class="far fa-clock"></i> Sisa Waktu: <span id="checkout-timer">15:00</span>
+                </span>
+            </div>
+
+            <div class="text-center bg-white p-6 rounded-2xl mb-6 shadow-inner">
+                <i class="fas fa-qrcode text-8xl text-slate-900"></i>
+                <p class="text-[10px] font-black text-slate-800 uppercase mt-2">Scan dengan GoPay / OVO / ShopeePay / BCA</p>
+            </div>
+
+            <button onclick="confirmPaymentSuccess()" class="w-full gold-gradient-btn text-slate-950 font-black py-3.5 rounded-xl text-xs shadow-xl">
+                Saya Sudah Membayar
+            </button>
+        </div>
+    </div>
+
+    <div id="doctorChatModal" class="fixed inset-0 z-[100] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-gold rounded-[2.5rem] w-full max-w-lg h-[550px] flex flex-col border border-amber-500/40 relative overflow-hidden">
+            <div class="p-4 bg-slate-900/90 border-b border-slate-800 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center font-black">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-black text-white" id="chat-doctor-name">Dr. Aris Purnama</h4>
+                        <p class="text-[10px] text-emerald-400 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live Consultation</p>
+                    </div>
+                </div>
+                <button onclick="toggleModal('doctorChatModal')" class="text-slate-400 hover:text-white p-2"><i class="fas fa-times"></i></button>
+            </div>
+
+            <!-- Chat Message Window -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-3" id="chat-messages-container">
+                <div class="flex gap-2 max-w-[80%]">
+                    <div class="bg-slate-800 p-3 rounded-2xl text-xs text-slate-200 border border-slate-700">
+                        Halo! Saya <span id="chat-doctor-role" class="text-amber-300 font-bold">Dokter Tanaman</span>. Apa keluhan pada tanaman hias Anda hari ini? Boleh infokan jenis tanaman & gejalanya.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <div class="p-3 bg-slate-900 border-t border-slate-800 flex gap-2 items-center">
+                <input type="text" id="chat-input-msg" placeholder="Tuliskan pertanyaan Anda..." onkeypress="if(event.key==='Enter') sendDoctorChat()" class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-amber-400">
+                <button onclick="sendDoctorChat()" class="gold-gradient-btn text-slate-950 font-black px-4 py-2 rounded-xl text-xs">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="doctorBookingModal" class="fixed inset-0 z-[100] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-gold rounded-[2rem] w-full max-w-sm p-6 border border-amber-500/40 relative">
+            <button onclick="toggleModal('doctorBookingModal')" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
+            <h3 class="text-lg font-black text-white mb-1">Jadwalkan Konsultasi</h3>
+            <p class="text-xs text-slate-400 mb-4" id="booking-doctor-target">Pilih tanggal & sesi waktu.</p>
+            
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Tanggal Konsultasi</label>
+                    <input type="date" id="booking-date-input" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Waktu Sesi</label>
+                    <select id="booking-time-input" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400">
+                        <option value="10:00 WIB">10:00 WIB (Pagi)</option>
+                        <option value="14:00 WIB">14:00 WIB (Siang)</option>
+                        <option value="19:00 WIB">19:00 WIB (Malam)</option>
+                    </select>
+                </div>
+                <button onclick="confirmDoctorBooking()" class="w-full gold-gradient-btn text-slate-950 font-black py-3 rounded-xl text-xs mt-2">Konfirmasi Booking</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="scheduleModal" class="fixed inset-0 z-[90] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-gold rounded-[2rem] w-full max-w-sm p-6 border border-amber-500/40 relative">
+            <button onclick="toggleScheduleModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
+            <h3 class="text-lg font-black text-white mb-4"><i class="fas fa-calendar-plus text-amber-400 mr-2"></i>Tambah Rutinitas Harian</h3>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Nama Tugas / Rutinitas</label>
+                    <input type="text" id="sched-title" placeholder="Cth: Semprot Hama Monstera" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Tanggal Tugas (Google Calendar)</label>
+                    <input type="date" id="sched-date" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Kategori Perawatan</label>
+                    <select id="sched-type" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none">
+                        <option value="siram">Penyiraman Air</option>
+                        <option value="pupuk">Pemupukan Nutrisi</option>
+                        <option value="pot">Pembersihan & Pemangkasan Daun</option>
+                    </select>
+                </div>
+                <button onclick="saveNewSchedule()" class="w-full gold-gradient-btn text-slate-950 font-black py-3 rounded-xl text-xs mt-2">Simpan ke Kalender</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="fixed inset-0 z-[100] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-gold rounded-[2.5rem] w-full max-w-sm p-6 border border-amber-500/40 relative">
+            <button onclick="toggleModal('loginModal')" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
+            <h3 class="text-2xl font-black text-white mb-1">Masuk VIP Gold</h3>
+            <p class="text-xs text-slate-400 mb-6">Dapatkan akses konsultasi dokter tanpa batas.</p>
+            <div class="space-y-3">
+                <button onclick="simulateAuth()" class="w-full bg-slate-800 text-white font-bold p-3 rounded-xl text-xs flex items-center justify-center gap-2 hover:bg-slate-700">
+                    <i class="fab fa-google text-red-400"></i> Lanjutkan dengan Google
+                </button>
+                <button onclick="simulateAuth()" class="w-full gold-gradient-btn text-slate-950 font-black p-3 rounded-xl text-xs">
+                    Masuk Akun TanyaTani
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container" class="fixed top-24 right-4 z-[110] flex flex-col gap-2"></div>
+
+    <!-- APPLICATION SCRIPTS (GLOBAL FUNCTIONS ASSIGNED TO WINDOW) -->
+    <script>
+        const formatRupiah = (num) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num);
+
+        let userPoints = 250;
+        let cart = [];
+        let appliedDiscountPercent = 0;
+        let activeCategory = 'semua';
+        let selectedCalendarDateStr = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+        let currentCalendarStart = new Date();
+
+        // EXPANDED PRODUCT CATALOG (12 PRODUCTS)
+        const products = [
+            { id: 'p1', name: 'Plant Corner: Living Package', price: 599000, category: 'paket', img: 'https://images.unsplash.com/photo-1615800098779-1be32e60cca3?auto=format&fit=crop&w=500&q=80', badge: 'Best Seller IKEA' },
+            { id: 'p2', name: 'Monstera Deliciosa Rimbun', price: 125000, category: 'tanaman', img: 'https://images.unsplash.com/photo-1604762512526-b7ce049b5764?auto=format&fit=crop&w=500&q=80', badge: 'Garansi 14 Hari' },
+            { id: 'p3', name: 'IKEA SATSUMAS Rak Tanaman', price: 299000, category: 'furnitur', img: 'https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&w=500&q=80', badge: 'IKEA Original' },
+            { id: 'p4', name: 'Pupuk Cair Organik Klorofil Gold', price: 45000, category: 'media', img: 'https://images.unsplash.com/photo-1598463567843-09b9322eb962?auto=format&fit=crop&w=500&q=80' },
+            { id: 'p5', name: 'Plant Corner: Complete Oasis', price: 999000, category: 'paket', img: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=500&q=80', badge: 'Luxe Gold Edition' },
+            { id: 'p6', name: 'Ketapang Biola (Fiddle Leaf)', price: 185000, category: 'tanaman', img: 'https://images.unsplash.com/photo-1614594975525-e45190c55d40?auto=format&fit=crop&w=500&q=80' },
+            { id: 'p7', name: 'IKEA FÖRENLIG Pot Tanaman 15cm', price: 79000, category: 'furnitur', img: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=500&q=80' },
+            { id: 'p8', name: 'Media Tanam Organic Soil Mix 5kg', price: 35000, category: 'media', img: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=500&q=80' },
+            { id: 'p9', name: 'Sansevieria Lidah Mertua Gold', price: 65000, category: 'tanaman', img: 'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=500&q=80' },
+            { id: 'p10', name: 'IKEA CHILISTRÅN Penyiram Tanaman', price: 149000, category: 'furnitur', img: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=500&q=80' },
+            { id: 'p11', name: 'LED Grow Light IKEA VÄXER 10W', price: 219000, category: 'aksesori', img: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=500&q=80' },
+            { id: 'p12', name: 'Set Sekop Mini Plant Care Gold', price: 49000, category: 'aksesori', img: 'https://images.unsplash.com/photo-1416879598555-220f86641e73?auto=format&fit=crop&w=500&q=80' }
+        ];
+
+        // GOOGLE CALENDAR ROUTINES WITH DATES
+        let schedules = [
+            { id: 1, title: 'Siram Monstera Deliciosa', type: 'siram', date: new Date().toISOString().split('T')[0], done: false },
+            { id: 2, title: 'Beri Pupuk Klorofil Gold', type: 'pupuk', date: new Date().toISOString().split('T')[0], done: true },
+            { id: 3, title: 'Semprot Cairan Anti Hama', type: 'pot', date: new Date(Date.now() + 86400000).toISOString().split('T')[0], done: false }
+        ];
+
+        const communityFeed = [
+            { name: 'Sarah A.', img: 'https://images.unsplash.com/photo-1615800098779-1be32e60cca3?auto=format&fit=crop&w=600&q=80', title: 'Sudut Ruang Tamu Minimalis', likes: 142 },
+            { name: 'Budi Kurnia', img: 'https://images.unsplash.com/photo-1604762512526-b7ce049b5764?auto=format&fit=crop&w=600&q=80', title: 'Monstera + Rak IKEA SATSUMAS', likes: 289 },
+            { name: 'Dewi Lestari', img: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80', title: 'Balkon Asri & Segar', likes: 98 }
+        ];
+
+        window.showToast = function(msg) {
+            const container = document.getElementById('toast-container');
+            if(!container) return;
+            const toast = document.createElement('div');
+            toast.className = 'glass-gold text-amber-300 px-4 py-3 rounded-xl border border-amber-500/40 text-xs font-bold shadow-2xl flex items-center gap-2 fade-in';
+            toast.innerHTML = `<i class="fas fa-check-circle text-amber-400"></i> ${msg}`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        };
+
+        window.showSection = function(id) {
+            document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+            const target = document.getElementById(id + '-section');
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        };
+
+        window.toggleModal = function(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.toggle('hidden');
+        };
+
+        window.dailyCheckIn = function() {
+            userPoints += 20;
+            const display = document.getElementById('user-points-display');
+            if (display) display.innerText = userPoints;
+            window.showToast('Klaim Bonus Harian Berhasil! (+20 Pts)');
+        };
+
+        window.renderProducts = function() {
+            const grid = document.getElementById('product-grid-container');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            products.forEach(p => {
+                if (activeCategory === 'semua' || p.category === activeCategory) {
+                    grid.innerHTML += `
+                        <div class="glass-card p-4 rounded-3xl hover:border-amber-500/50 transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 mb-3">
+                                    <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                                    ${p.badge ? `<span class="absolute top-2 left-2 bg-amber-400 text-slate-950 font-black text-[9px] px-2 py-0.5 rounded uppercase">${p.badge}</span>` : ''}
+                                </div>
+                                <h4 class="text-xs font-black text-white line-clamp-2">${p.name}</h4>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+                                <span class="text-xs font-black gold-gradient-text">${formatRupiah(p.price)}</span>
+                                <button onclick="addToCart('${p.id}')" class="gold-gradient-btn text-slate-950 w-8 h-8 rounded-xl flex items-center justify-center font-black shadow">
+                                    <i class="fas fa-plus text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+        };
+
+        window.filterCategory = function(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.market-tab-btn').forEach(btn => {
+                btn.className = 'market-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:text-white';
+            });
+            event.target.className = 'market-tab-btn px-4 py-2 rounded-full text-xs font-black bg-amber-400 text-slate-950';
+            window.renderProducts();
+        };
+
+        window.filterMarketProducts = function() {
+            const q = document.getElementById('market-search').value.toLowerCase();
+            const cards = document.getElementById('product-grid-container').children;
+            Array.from(cards).forEach(c => {
+                const title = c.querySelector('h4').innerText.toLowerCase();
+                c.style.display = title.includes(q) ? 'flex' : 'none';
+            });
+        };
+
+        window.addToCart = function(productId) {
+            const prod = products.find(p => p.id === productId);
+            if (!prod) return;
+
+            const existing = cart.find(c => c.id === productId);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...prod, qty: 1 });
+            }
+
+            window.updateCartUI();
+            window.showToast(`${prod.name} masuk keranjang!`);
+        };
+
+        window.updateCartUI = function() {
+            const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+            const navBadge = document.getElementById('cart-badge-nav');
+            const mobileBadge = document.getElementById('mobile-cart-badge');
+            
+            if(navBadge) {
+                navBadge.innerText = totalQty;
+                navBadge.classList.toggle('hidden', totalQty === 0);
+            }
+            if(mobileBadge) {
+                mobileBadge.innerText = totalQty;
+                mobileBadge.classList.toggle('hidden', totalQty === 0);
+            }
+
+            const container = document.getElementById('cart-items-list');
+            const emptyMsg = document.getElementById('cart-empty-msg');
+            if(!container) return;
+
+            if (cart.length === 0) {
+                if (emptyMsg) emptyMsg.classList.remove('hidden');
+                container.innerHTML = '';
+                if (emptyMsg) container.appendChild(emptyMsg);
+            } else {
+                if (emptyMsg) emptyMsg.classList.add('hidden');
+                container.innerHTML = '';
+                cart.forEach(item => {
+                    container.innerHTML += `
+                        <div class="relative overflow-hidden rounded-2xl bg-red-500/90 shadow-inner" id="cart-item-wrap-${item.id}">
+                            <div class="absolute inset-y-0 right-0 w-20 flex items-center justify-center text-white cursor-pointer hover:bg-red-600 transition-colors" onclick="removeFromCart('${item.id}')">
+                                <i class="fas fa-trash text-lg"></i>
+                            </div>
+                            <div class="relative bg-slate-900 p-3 flex gap-3 items-center z-10 transition-transform duration-200 border border-slate-800 rounded-2xl w-full"
+                                 ontouchstart="handleTouchStart(event, this)" 
+                                 ontouchmove="handleTouchMove(event, this)" 
+                                 ontouchend="handleTouchEnd(event, this, '${item.id}')">
+                                <img src="${item.img}" class="w-12 h-12 rounded-xl object-cover">
+                                <div class="flex-1">
+                                    <h5 class="text-xs font-bold text-white line-clamp-1">${item.name}</h5>
+                                    <span class="text-xs gold-gradient-text font-black">${formatRupiah(item.price)}</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-slate-950 px-2 py-1 rounded-lg shadow-inner">
+                                    <button onclick="changeQty('${item.id}', -1)" class="text-slate-400 hover:text-white font-black text-xs px-1">-</button>
+                                    <span class="text-xs font-black text-white w-4 text-center">${item.qty}</span>
+                                    <button onclick="changeQty('${item.id}', 1)" class="text-slate-400 hover:text-white font-black text-xs px-1">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            window.calculateCartTotal();
+        };
+
+        let touchStartX = 0;
+        window.handleTouchStart = function(e, el) {
+            touchStartX = e.touches[0].clientX;
+            el.style.transition = 'none';
+        };
+
+        window.handleTouchMove = function(e, el) {
+            const touchCurrentX = e.touches[0].clientX;
+            const diffX = touchStartX - touchCurrentX;
+            if (diffX > 0 && diffX <= 80) {
+                el.style.transform = `translateX(-${diffX}px)`;
+            } else if (diffX > 80) {
+                el.style.transform = `translateX(-80px)`;
+            } else if (diffX < 0) {
+                el.style.transform = `translateX(0px)`;
+            }
+        };
+
+        window.handleTouchEnd = function(e, el, id) {
+            el.style.transition = 'transform 0.2s ease-out';
+            const touchEndX = e.changedTouches[0].clientX;
+            const diffX = touchStartX - touchEndX;
+            if (diffX > 40) {
+                el.style.transform = `translateX(-80px)`;
+            } else {
+                el.style.transform = `translateX(0px)`;
+            }
+        };
+
+        window.removeFromCart = function(id) {
+            cart = cart.filter(i => i.id !== id);
+            window.updateCartUI();
+            window.showToast('Produk dihapus dari keranjang');
+        };
+
+        window.changeQty = function(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            window.updateCartUI();
+        };
+
+        window.renderCartRecommendations = function() {
+            const container = document.getElementById('cart-recommendations');
+            if(!container) return;
+            container.innerHTML = '';
+            
+            const recs = products.filter(p => p.category === 'media' || p.category === 'aksesori').slice(0, 3);
+            recs.forEach(p => {
+                container.innerHTML += `
+                    <div class="min-w-[130px] bg-slate-900 rounded-xl border border-slate-800 p-2.5 flex flex-col justify-between shadow-lg">
+                        <div>
+                            <img src="${p.img}" class="w-full h-16 object-cover rounded-lg mb-2">
+                            <h5 class="text-[10px] font-bold text-white line-clamp-2 leading-tight">${p.name}</h5>
+                        </div>
+                        <div class="mt-2 pt-2 border-t border-slate-800 flex items-center justify-between">
+                            <span class="text-[10px] gold-gradient-text font-black">${formatRupiah(p.price)}</span>
+                            <button onclick="addToCart('${p.id}')" class="bg-amber-500 hover:bg-amber-400 text-black w-6 h-6 rounded flex items-center justify-center font-black transition-colors">
+                                <i class="fas fa-plus text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            if(recs.length > 0) {
+                document.getElementById('cart-recommendations-wrapper').classList.remove('hidden');
+            }
+        };
+
+        window.applyVoucher = function() {
+            const code = document.getElementById('voucher-input').value.trim().toUpperCase();
+            if (code === 'GOLD2026') {
+                appliedDiscountPercent = 15;
+                window.showToast('Kupon GOLD2026 Berhasil Dipasang! (-15%)');
+            } else {
+                window.showToast('Kode Kupon Tidak Valid');
+            }
+            window.calculateCartTotal();
+        };
+
+        window.calculateCartTotal = function() {
+            const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            const discount = (subtotal * appliedDiscountPercent) / 100;
+            const total = subtotal - discount;
+
+            document.getElementById('cart-subtotal').innerText = formatRupiah(subtotal);
+            document.getElementById('cart-discount').innerText = `- ${formatRupiah(discount)}`;
+            document.getElementById('cart-total-price').innerText = formatRupiah(total);
+        };
+
+        window.toggleCart = function() {
+            const modal = document.getElementById('cartModal');
+            const panel = document.getElementById('cartPanel');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => panel.classList.remove('translate-x-full'), 10);
+            } else {
+                panel.classList.add('translate-x-full');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        };
+
+        window.renderCalendarPills = function() {
+            const container = document.getElementById('calendar-days-container');
+            if(!container) return;
+            container.innerHTML = '';
+
+            const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+            const start = new Date(currentCalendarStart);
+
+            for (let i = 0; i < 7; i++) {
+                const d = new Date(start);
+                d.setDate(start.getDate() + i);
+                const dateStr = d.toISOString().split('T')[0];
+                const dayName = dayNames[d.getDay()];
+                const dayNum = d.getDate();
+                const isSelected = dateStr === selectedCalendarDateStr;
+
+                container.innerHTML += `
+                    <button onclick="selectCalendarDate('${dateStr}')" class="p-2 rounded-xl flex flex-col items-center transition-all ${isSelected ? 'gold-gradient-bg text-slate-950 font-black shadow-lg scale-105' : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'}">
+                        <span class="text-[9px] uppercase tracking-wider ${isSelected ? 'text-slate-950 font-bold' : 'text-slate-400'}">${dayName}</span>
+                        <span class="text-sm font-extrabold mt-0.5">${dayNum}</span>
+                    </button>
+                `;
+            }
+
+            window.renderSchedules();
+        };
+
+        window.shiftCalendarWeek = function(direction) {
+            currentCalendarStart.setDate(currentCalendarStart.getDate() + (direction * 7));
+            window.renderCalendarPills();
+        };
+
+        window.selectCalendarDate = function(dateStr) {
+            selectedCalendarDateStr = dateStr;
+            window.renderCalendarPills();
+        };
+
+        window.renderSchedules = function() {
+            const container = document.getElementById('schedule-list-container');
+            const dateTitle = document.getElementById('active-schedule-date-title');
+            const countLabel = document.getElementById('active-schedule-count');
+            if (!container) return;
+
+            const filtered = schedules.filter(s => s.date === selectedCalendarDateStr);
+            if(dateTitle) dateTitle.innerText = `Tugas (${selectedCalendarDateStr})`;
+            if(countLabel) countLabel.innerText = `${filtered.length} Tugas`;
+
+            container.innerHTML = '';
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-6 text-slate-500 text-xs">
+                        <i class="far fa-calendar-check text-2xl mb-1 opacity-50"></i>
+                        <p>Tidak ada jadwal perawatan di tanggal ini.</p>
+                    </div>
+                `;
+            } else {
+                filtered.forEach(s => {
+                    container.innerHTML += `
+                        <div class="flex justify-between items-center bg-slate-900 p-3 rounded-2xl border border-slate-800">
+                            <div class="flex items-center gap-2">
+                                <i class="fas ${s.type === 'siram' ? 'fa-tint text-blue-400' : s.type === 'pupuk' ? 'fa-flask text-amber-400' : 'fa-leaf text-emerald-400'} text-xs"></i>
+                                <span class="text-xs font-bold ${s.done ? 'line-through text-slate-500' : 'text-white'}">${s.title}</span>
+                            </div>
+                            <button onclick="toggleSchedule(${s.id})" class="text-xs ${s.done ? 'text-emerald-400' : 'text-slate-500 hover:text-amber-300'}">
+                                <i class="fas ${s.done ? 'fa-check-circle text-base' : 'fa-circle text-base'}"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+            }
+        };
+
+        window.toggleSchedule = function(id) {
+            const item = schedules.find(s => s.id === id);
+            if (item) item.done = !item.done;
+            window.renderSchedules();
+        };
+
+        window.toggleScheduleModal = function() {
+            const input = document.getElementById('sched-date');
+            if(input) input.value = selectedCalendarDateStr;
+            window.toggleModal('scheduleModal');
+        };
+
+        window.saveNewSchedule = function() {
+            const title = document.getElementById('sched-title').value;
+            const date = document.getElementById('sched-date').value || selectedCalendarDateStr;
+            const type = document.getElementById('sched-type').value;
+
+            if (title) {
+                schedules.push({ id: Date.now(), title, type, date, done: false });
+                selectedCalendarDateStr = date;
+                window.renderCalendarPills();
+                window.toggleModal('scheduleModal');
+                window.showToast('Jadwal Ditambahkan ke Kalender!');
+            }
+        };
+
+        window.filterExperts = function(cat) {
+            document.querySelectorAll('#expert-grid-container > div').forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        window.openDoctorChat = function(name, role) {
+            document.getElementById('chat-doctor-name').innerText = name;
+            document.getElementById('chat-doctor-role').innerText = role;
+            window.toggleModal('doctorChatModal');
+        };
+
+        window.sendDoctorChat = function() {
+            const input = document.getElementById('chat-input-msg');
+            const text = input.value.trim();
+            if(!text) return;
+
+            const container = document.getElementById('chat-messages-container');
+            container.innerHTML += `
+                <div class="flex justify-end">
+                    <div class="gold-gradient-bg text-slate-950 font-medium p-3 rounded-2xl text-xs max-w-[80%] shadow">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+
+            // Simulated Doctor Response
+            setTimeout(() => {
+                container.innerHTML += `
+                    <div class="flex gap-2 max-w-[80%]">
+                        <div class="bg-slate-800 p-3 rounded-2xl text-xs text-slate-200 border border-slate-700">
+                            Terima kasih atas informasinya. Berdasarkan gejala tersebut, disarankan untuk mengecek kelembapan tanah dan menambahkan pupuk nutrisi klorofil.
+                        </div>
+                    </div>
+                `;
+                container.scrollTop = container.scrollHeight;
+            }, 1200);
+        };
+
+        window.openBookingModal = function(name) {
+            document.getElementById('booking-doctor-target').innerText = `Konsultasi bersama ${name}`;
+            document.getElementById('booking-date-input').value = new Date().toISOString().split('T')[0];
+            window.toggleModal('doctorBookingModal');
+        };
+
+        window.confirmDoctorBooking = function() {
+            const date = document.getElementById('booking-date-input').value;
+            const time = document.getElementById('booking-time-input').value;
+            window.toggleModal('doctorBookingModal');
+            window.showToast(`Sesi Konsultasi Dikonfirmasi untuk ${date} (${time})`);
+        };
+
+        window.triggerFileInput = function() {
+            document.getElementById('file-upload-input').click();
+        };
+
+        window.handleFileSelected = function(event) {
+            if (event.target.files && event.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    window.executeAIScan(e.target.result);
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        };
+
+        window.runDemoScan = function() {
+            window.executeAIScan('https://images.unsplash.com/photo-1614594975525-e45190c55d40?auto=format&fit=crop&w=600&q=80');
+        };
+
+        window.executeAIScan = function(imgUrl) {
+            document.getElementById('scanner-idle-state').classList.add('hidden');
+            document.getElementById('scanner-active-state').classList.remove('hidden');
+            document.getElementById('scan-laser-line').classList.remove('hidden');
+            document.getElementById('scan-preview-img').src = imgUrl;
+
+            setTimeout(() => {
+                document.getElementById('scan-laser-line').classList.add('hidden');
+                document.getElementById('scanner-idle-state').classList.remove('hidden');
+                document.getElementById('scanner-active-state').classList.add('hidden');
+
+                document.getElementById('diagnosis-placeholder').classList.add('hidden');
+                document.getElementById('diagnosis-actual-result').classList.remove('hidden');
+                window.showToast('Diagnosis AI Selesai Disusun!');
+            }, 2500);
+        };
+
+        window.calculateRoomPlan = function() {
+            document.getElementById('planner-result-card').classList.remove('hidden');
+            window.showToast('Rekomendasi Paket IKEA Terhitung!');
+        };
+
+        window.calculateWatering = function() {
+            const size = parseInt(document.getElementById('water-pot-size').value) || 20;
+            const volume = size * 18;
+            document.getElementById('calc-volume').innerText = `${volume} ml`;
+            document.getElementById('water-calc-result').classList.remove('hidden');
+            
+            // Auto add to calendar
+            schedules.push({
+                id: Date.now(),
+                title: 'Penyiraman Air Presisi',
+                type: 'siram',
+                date: selectedCalendarDateStr,
+                done: false
+            });
+            window.renderSchedules();
+            window.showToast('Jadwal Siram Ditambahkan ke Kalender!');
+        };
+
+        window.renderCommunityFeed = function() {
+            const grid = document.getElementById('community-feed-grid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            communityFeed.forEach(f => {
+                grid.innerHTML += `
+                    <div class="glass-card rounded-3xl overflow-hidden border border-amber-500/20 group">
+                        <img src="${f.img}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                        <div class="p-4">
+                            <h4 class="text-xs font-black text-white">${f.title}</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Diposting oleh ${f.name}</p>
+                            <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
+                                <span class="text-amber-400 font-bold"><i class="fas fa-heart mr-1"></i> ${f.likes}</span>
+                                <button onclick="addToCart('p1')" class="text-amber-300 font-bold hover:underline">Shop This Look</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        };
+
+        window.openCheckout = function() {
+            if (cart.length === 0) {
+                window.showToast('Keranjang Anda masih kosong');
+                return;
+            }
+            window.toggleCart();
+            const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            const discount = (subtotal * appliedDiscountPercent) / 100;
+            document.getElementById('checkout-final-price').innerText = formatRupiah(subtotal - discount);
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        };
+
+        window.closeCheckout = function() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        };
+
+        window.confirmPaymentSuccess = function() {
+            window.closeCheckout();
+            cart = [];
+            window.updateCartUI();
+            window.showToast('Pembayaran Berhasil! Pesanan Sedang Diproses.');
+        };
+
+        window.simulateAuth = function() {
+            window.toggleModal('loginModal');
+            window.showToast('Berhasil Masuk Akun VIP Gold!');
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.renderProducts();
+            window.renderCalendarPills();
+            window.renderCommunityFeed();
+            window.renderCartRecommendations();
+        });
+    </script>
+</body>
+</html>
