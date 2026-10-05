@@ -227,6 +227,16 @@
                     <div class="flex items-center gap-3"><i class="fas fa-users text-amber-400"></i> Komunitas & Inspirasi</div>
                     <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
                 </button>
+                <div class="pt-4 mt-4 border-t border-slate-700/80">
+                    <div id="mobile-auth-action-container" class="grid grid-cols-2 gap-3">
+                        <button onclick="openAuthModal('signin'); toggleMobileMenu()" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-3 rounded-xl text-xs font-bold hover:bg-slate-700">
+                            <i class="fas fa-sign-in-alt mr-1"></i> Sign In
+                        </button>
+                        <button onclick="openAuthModal('signup'); toggleMobileMenu()" class="gold-gradient-btn text-slate-950 px-4 py-3 rounded-xl text-xs font-black">
+                            <i class="fas fa-user-plus mr-1"></i> Sign Up
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -1504,8 +1514,20 @@
         window.submitEmailAuth = function(ev){ ev.preventDefault(); const otp=document.getElementById('auth-otp').value.trim(), email=document.getElementById('auth-email').value.trim(); if(!generatedOtp){showToast('Kirim OTP terlebih dahulu');return;} if(otp!==generatedOtp){showToast('Kode OTP tidak sesuai');return;} finishLogin(email, currentAuthMode==='signup'?'Pendaftaran berhasil':'Login berhasil'); };
         window.openSocialLoginPopup = function(p){ selectedSocialProvider=p; const m={Google:'fab fa-google text-3xl text-red-500',Microsoft:'fab fa-microsoft text-3xl text-blue-600',Apple:'fab fa-apple text-3xl text-slate-900'}; document.getElementById('social-provider-icon').className=m[p]; document.getElementById('social-provider-title').innerText=`Masuk dengan ${p}`; document.getElementById('socialLoginModal').classList.remove('hidden'); };
         window.completeSocialLogin = function(){ document.getElementById('socialLoginModal').classList.add('hidden'); finishLogin(`Pengguna ${selectedSocialProvider}`,`Login via ${selectedSocialProvider} berhasil`); };
-        window.finishLogin = function(name,msg){ generatedOtp=''; closeAuthModal(); const safe=String(name).replace(/[<>&"']/g,''); document.getElementById('auth-action-container').innerHTML=`<div class="flex items-center gap-2 bg-slate-800 border border-amber-500/30 rounded-full pl-3 pr-1 py-1"><span class="text-[10px] text-white font-bold max-w-[110px] truncate">${safe}</span><button onclick="signOut()" class="bg-red-500/15 text-red-300 px-3 py-1.5 rounded-full text-[10px] font-black">Sign Out</button></div>`; showToast(msg); };
-        window.signOut = function(){ document.getElementById('auth-action-container').innerHTML=`<button onclick="openAuthModal('signin')" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-2 rounded-full text-xs font-bold">Sign In</button><button onclick="openAuthModal('signup')" class="gold-gradient-btn text-slate-950 px-4 py-2 rounded-full text-xs font-black">Sign Up</button>`; showToast('Anda berhasil sign out'); };
+        window.renderAuthActions = function(name = '') {
+            const desktop = document.getElementById('auth-action-container');
+            const mobile = document.getElementById('mobile-auth-action-container');
+            if (name) {
+                const safe = String(name).replace(/[<>&"']/g, '');
+                if (desktop) desktop.innerHTML = `<div class="flex items-center gap-2 bg-slate-800 border border-amber-500/30 rounded-full pl-3 pr-1 py-1"><span class="text-[10px] text-white font-bold max-w-[110px] truncate">${safe}</span><button onclick="signOut()" class="bg-red-500/15 text-red-300 px-3 py-1.5 rounded-full text-[10px] font-black">Sign Out</button></div>`;
+                if (mobile) mobile.innerHTML = `<div class="col-span-2 flex items-center justify-between gap-3 bg-slate-800 border border-amber-500/30 rounded-xl p-3"><div class="min-w-0"><p class="text-[10px] text-slate-400">Masuk sebagai</p><p class="text-xs text-white font-bold truncate">${safe}</p></div><button onclick="signOut(); toggleMobileMenu()" class="shrink-0 bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-2.5 rounded-xl text-xs font-black"><i class="fas fa-sign-out-alt mr-1"></i> Sign Out</button></div>`;
+            } else {
+                if (desktop) desktop.innerHTML = `<button onclick="openAuthModal('signin')" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-2 rounded-full text-xs font-bold">Sign In</button><button onclick="openAuthModal('signup')" class="gold-gradient-btn text-slate-950 px-4 py-2 rounded-full text-xs font-black">Sign Up</button>`;
+                if (mobile) mobile.innerHTML = `<button onclick="openAuthModal('signin'); toggleMobileMenu()" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-3 rounded-xl text-xs font-bold"><i class="fas fa-sign-in-alt mr-1"></i> Sign In</button><button onclick="openAuthModal('signup'); toggleMobileMenu()" class="gold-gradient-btn text-slate-950 px-4 py-3 rounded-xl text-xs font-black"><i class="fas fa-user-plus mr-1"></i> Sign Up</button>`;
+            }
+        };
+        window.finishLogin = function(name,msg){ generatedOtp=''; closeAuthModal(); window.renderAuthActions(name); showToast(msg); };
+        window.signOut = function(){ window.renderAuthActions(); showToast('Anda berhasil sign out'); };
 
         document.addEventListener('DOMContentLoaded', () => {
             window.renderProducts();
