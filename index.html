@@ -229,12 +229,8 @@
                 </button>
                 <div class="pt-4 mt-4 border-t border-slate-700/80">
                     <div id="mobile-auth-action-container" class="grid grid-cols-2 gap-3">
-                        <button onclick="openAuthModal('signin'); toggleMobileMenu()" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-3 rounded-xl text-xs font-bold hover:bg-slate-700">
-                            <i class="fas fa-sign-in-alt mr-1"></i> Sign In
-                        </button>
-                        <button onclick="openAuthModal('signup'); toggleMobileMenu()" class="gold-gradient-btn text-slate-950 px-4 py-3 rounded-xl text-xs font-black">
-                            <i class="fas fa-user-plus mr-1"></i> Sign Up
-                        </button>
+                        <button onclick="openAuthModal('signin'); toggleMobileMenu()" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-3 rounded-xl text-xs font-bold"><i class="fas fa-sign-in-alt mr-1"></i> Sign In</button>
+                        <button onclick="openAuthModal('signup'); toggleMobileMenu()" class="gold-gradient-btn text-slate-950 px-4 py-3 rounded-xl text-xs font-black"><i class="fas fa-user-plus mr-1"></i> Sign Up</button>
                     </div>
                 </div>
             </div>
@@ -492,7 +488,7 @@
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
                             <button onclick="openDoctorChat('Dr. Aris Purnama, M.Si', 'Spesialis Monstera & Hama')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
-                                <i class="fas fa-comments"></i> Chat Sekarang
+                                <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
                             <button onclick="openBookingModal('Dr. Aris Purnama, M.Si')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
@@ -520,7 +516,7 @@
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
                             <button onclick="openDoctorChat('Maya Indah, S.P.', 'Pakar Nutrisi Tanah')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
-                                <i class="fas fa-comments"></i> Chat Sekarang
+                                <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
                             <button onclick="openBookingModal('Maya Indah, S.P.')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
@@ -548,7 +544,7 @@
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
                             <button onclick="openDoctorChat('Hendra Wijaya', 'IKEA Plant Specialist')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
-                                <i class="fas fa-comments"></i> Chat Sekarang
+                                <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
                             <button onclick="openBookingModal('Hendra Wijaya')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
@@ -814,27 +810,41 @@
     </div>
 
     <div id="checkoutModal" class="fixed inset-0 z-[90] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-gold rounded-[2.5rem] w-full max-w-md p-6 border border-amber-500/40 relative">
+        <div class="glass-gold rounded-[2.5rem] w-full max-w-lg p-6 border border-amber-500/40 relative max-h-[94vh] overflow-y-auto">
             <button onclick="closeCheckout()" class="absolute top-6 right-6 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
             <h3 class="text-xl font-black text-white mb-1">Pembayaran Pesanan</h3>
-            <p class="text-xs text-slate-400 mb-6">Selesaikan transfer sebelum batas waktu berakhir.</p>
-
-            <div class="p-4 bg-slate-900 rounded-2xl border border-amber-500/30 mb-6 text-center">
+            <p class="text-xs text-slate-400 mb-5">Pilih QRIS atau Virtual Account bank.</p>
+            <div class="p-4 bg-slate-900 rounded-2xl border border-amber-500/30 mb-5 text-center">
                 <p class="text-[10px] text-slate-400 uppercase font-bold">Total Pembayaran</p>
                 <p class="text-3xl font-black gold-gradient-text my-1" id="checkout-final-price">Rp 0</p>
-                <span class="text-xs text-red-400 font-bold bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 inline-block mt-1">
-                    <i class="far fa-clock"></i> Sisa Waktu: <span id="checkout-timer">15:00</span>
-                </span>
+                <span class="text-xs text-red-400 font-bold bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 inline-block mt-1"><i class="far fa-clock"></i> Sisa Waktu: <span id="checkout-timer">15:00</span></span>
             </div>
-
-            <div class="text-center bg-white p-6 rounded-2xl mb-6 shadow-inner">
-                <i class="fas fa-qrcode text-8xl text-slate-900"></i>
-                <p class="text-[10px] font-black text-slate-800 uppercase mt-2">Scan dengan GoPay / OVO / ShopeePay / BCA</p>
+            <div class="grid grid-cols-2 gap-2 mb-4">
+                <button id="payment-tab-qris" onclick="selectPaymentMethod('qris')" class="payment-tab gold-gradient-bg text-slate-950 font-black py-3 rounded-xl text-xs"><i class="fas fa-qrcode mr-1"></i> QRIS</button>
+                <button id="payment-tab-va" onclick="selectPaymentMethod('va')" class="payment-tab bg-slate-800 text-slate-300 border border-slate-700 font-bold py-3 rounded-xl text-xs"><i class="fas fa-university mr-1"></i> Virtual Account</button>
             </div>
-
-            <button onclick="confirmPaymentSuccess()" class="w-full gold-gradient-btn text-slate-950 font-black py-3.5 rounded-xl text-xs shadow-xl">
-                Saya Sudah Membayar
-            </button>
+            <div id="payment-qris-panel" class="text-center bg-white p-5 rounded-2xl mb-5 shadow-inner">
+                <img src="qris-pembayaran.png" alt="Kode QRIS pembayaran" class="w-64 max-w-full mx-auto rounded-lg border border-slate-200">
+                <p class="text-[10px] font-black text-slate-800 uppercase mt-3">Pindai QRIS menggunakan aplikasi pembayaran Anda</p>
+            </div>
+            <div id="payment-va-panel" class="hidden space-y-3 mb-5">
+                <label class="block text-[10px] text-amber-400 font-black uppercase">Pilih Bank / Layanan</label>
+                <select id="va-bank-select" onchange="updateVaDetails()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400">
+                    <option value="bca">BCA Virtual Account</option>
+                    <option value="bni">BNI Virtual Account</option>
+                    <option value="bri">BRI Virtual Account</option>
+                    <option value="mandiri">Mandiri Virtual Account</option>
+                    <option value="permata">Permata Virtual Account</option>
+                    <option value="shopeepay">ShopeePay</option>
+                </select>
+                <div class="bg-slate-900 border border-amber-500/30 rounded-2xl p-4">
+                    <p id="va-provider-name" class="text-xs text-amber-300 font-black">BCA Virtual Account</p>
+                    <p class="text-[10px] text-slate-400 mt-2">Nomor pembayaran demo</p>
+                    <div class="flex items-center gap-2 mt-1"><code id="va-number" class="flex-1 text-white font-black tracking-wider bg-slate-950 px-3 py-2 rounded-lg">88081234567890</code><button onclick="copyVaNumber()" class="bg-amber-400 text-slate-950 px-3 py-2 rounded-lg text-xs font-black"><i class="far fa-copy"></i></button></div>
+                    <p class="text-[10px] text-slate-500 mt-2">Nomor VA di halaman ini masih contoh dan harus diganti oleh nomor dari payment gateway.</p>
+                </div>
+            </div>
+            <button onclick="confirmPaymentSuccess()" class="w-full gold-gradient-btn text-slate-950 font-black py-3.5 rounded-xl text-xs shadow-xl">Saya Sudah Membayar</button>
         </div>
     </div>
 
@@ -848,6 +858,7 @@
                     <div>
                         <h4 class="text-sm font-black text-white" id="chat-doctor-name">Dr. Aris Purnama</h4>
                         <p class="text-[10px] text-emerald-400 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live Consultation</p>
+                        <p class="text-[9px] text-amber-300 font-bold mt-0.5"><i class="fas fa-coins mr-1"></i>Biaya sesi: 50 poin</p>
                     </div>
                 </div>
                 <button onclick="toggleModal('doctorChatModal')" class="text-slate-400 hover:text-white p-2"><i class="fas fa-times"></i></button>
@@ -1014,10 +1025,16 @@
             if (modal) modal.classList.toggle('hidden');
         };
 
+        const expertChatCost = 50;
+        window.updateUserPointsDisplay = function() {
+            document.querySelectorAll('#user-points-display, [data-user-points]').forEach(el => {
+                el.innerText = userPoints;
+            });
+        };
+
         window.dailyCheckIn = function() {
             userPoints += 20;
-            const display = document.getElementById('user-points-display');
-            if (display) display.innerText = userPoints;
+            window.updateUserPointsDisplay();
             window.showToast('Klaim Bonus Harian Berhasil! (+20 Pts)');
         };
 
@@ -1350,9 +1367,23 @@
         };
 
         window.openDoctorChat = function(name, role) {
+            if (userPoints < expertChatCost) {
+                window.showToast(`Poin tidak cukup. Chat ahli membutuhkan ${expertChatCost} poin.`);
+                return;
+            }
+            userPoints -= expertChatCost;
+            window.updateUserPointsDisplay();
             document.getElementById('chat-doctor-name').innerText = name;
             document.getElementById('chat-doctor-role').innerText = role;
-            window.toggleModal('doctorChatModal');
+            document.getElementById('chat-messages-container').innerHTML = `
+                <div class="flex gap-2 max-w-[80%]">
+                    <div class="bg-slate-800 p-3 rounded-2xl text-xs text-slate-200 border border-slate-700">
+                        Halo! Saya <span id="chat-doctor-role" class="text-amber-300 font-bold">${role}</span>. Apa keluhan pada tanaman hias Anda hari ini? Boleh infokan jenis tanaman dan gejalanya.
+                    </div>
+                </div>`;
+            document.getElementById('chat-input-msg').value = '';
+            document.getElementById('doctorChatModal').classList.remove('hidden');
+            window.showToast(`${expertChatCost} poin digunakan untuk memulai chat ahli. Sisa ${userPoints} poin.`);
         };
 
         window.sendDoctorChat = function() {
@@ -1476,6 +1507,68 @@
             });
         };
 
+        let checkoutTimerInterval = null;
+        let checkoutSecondsRemaining = 15 * 60;
+
+        window.renderCheckoutTimer = function() {
+            const timer = document.getElementById('checkout-timer');
+            if (!timer) return;
+            const minutes = Math.floor(checkoutSecondsRemaining / 60);
+            const seconds = checkoutSecondsRemaining % 60;
+            timer.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        };
+
+        window.stopCheckoutTimer = function() {
+            if (checkoutTimerInterval) {
+                clearInterval(checkoutTimerInterval);
+                checkoutTimerInterval = null;
+            }
+        };
+
+        window.startCheckoutTimer = function() {
+            window.stopCheckoutTimer();
+            checkoutSecondsRemaining = 15 * 60;
+            window.renderCheckoutTimer();
+            checkoutTimerInterval = setInterval(() => {
+                checkoutSecondsRemaining -= 1;
+                window.renderCheckoutTimer();
+                if (checkoutSecondsRemaining <= 0) {
+                    window.stopCheckoutTimer();
+                    document.getElementById('checkoutModal').classList.add('hidden');
+                    window.showToast('Waktu pembayaran telah habis. Silakan buat pembayaran baru.');
+                }
+            }, 1000);
+        };
+
+        let selectedPaymentMethod = 'qris';
+        const vaOptions = {
+            bca: ['BCA Virtual Account', '88081234567890'],
+            bni: ['BNI Virtual Account', '98881234567890'],
+            bri: ['BRI Virtual Account', '12881234567890'],
+            mandiri: ['Mandiri Virtual Account', '888081234567890'],
+            permata: ['Permata Virtual Account', '85281234567890'],
+            shopeepay: ['ShopeePay', '081234567890']
+        };
+        window.selectPaymentMethod = function(method) {
+            selectedPaymentMethod = method;
+            const qris = method === 'qris';
+            document.getElementById('payment-qris-panel').classList.toggle('hidden', !qris);
+            document.getElementById('payment-va-panel').classList.toggle('hidden', qris);
+            document.getElementById('payment-tab-qris').className = qris ? 'payment-tab gold-gradient-bg text-slate-950 font-black py-3 rounded-xl text-xs' : 'payment-tab bg-slate-800 text-slate-300 border border-slate-700 font-bold py-3 rounded-xl text-xs';
+            document.getElementById('payment-tab-va').className = !qris ? 'payment-tab gold-gradient-bg text-slate-950 font-black py-3 rounded-xl text-xs' : 'payment-tab bg-slate-800 text-slate-300 border border-slate-700 font-bold py-3 rounded-xl text-xs';
+        };
+        window.updateVaDetails = function() {
+            const key = document.getElementById('va-bank-select').value;
+            const data = vaOptions[key];
+            document.getElementById('va-provider-name').innerText = data[0];
+            document.getElementById('va-number').innerText = data[1];
+        };
+        window.copyVaNumber = function() {
+            const value = document.getElementById('va-number').innerText;
+            if (navigator.clipboard) navigator.clipboard.writeText(value);
+            window.showToast('Nomor pembayaran disalin');
+        };
+
         window.openCheckout = function() {
             if (cart.length === 0) {
                 window.showToast('Keranjang Anda masih kosong');
@@ -1486,9 +1579,12 @@
             const discount = (subtotal * appliedDiscountPercent) / 100;
             document.getElementById('checkout-final-price').innerText = formatRupiah(subtotal - discount);
             document.getElementById('checkoutModal').classList.remove('hidden');
+            window.selectPaymentMethod('qris');
+            window.startCheckoutTimer();
         };
 
         window.closeCheckout = function() {
+            window.stopCheckoutTimer();
             document.getElementById('checkoutModal').classList.add('hidden');
         };
 
@@ -1515,25 +1611,19 @@
         window.openSocialLoginPopup = function(p){ selectedSocialProvider=p; const m={Google:'fab fa-google text-3xl text-red-500',Microsoft:'fab fa-microsoft text-3xl text-blue-600',Apple:'fab fa-apple text-3xl text-slate-900'}; document.getElementById('social-provider-icon').className=m[p]; document.getElementById('social-provider-title').innerText=`Masuk dengan ${p}`; document.getElementById('socialLoginModal').classList.remove('hidden'); };
         window.completeSocialLogin = function(){ document.getElementById('socialLoginModal').classList.add('hidden'); finishLogin(`Pengguna ${selectedSocialProvider}`,`Login via ${selectedSocialProvider} berhasil`); };
         window.renderAuthActions = function(name = '') {
-            const desktop = document.getElementById('auth-action-container');
-            const mobile = document.getElementById('mobile-auth-action-container');
-            if (name) {
-                const safe = String(name).replace(/[<>&"']/g, '');
-                if (desktop) desktop.innerHTML = `<div class="flex items-center gap-2 bg-slate-800 border border-amber-500/30 rounded-full pl-3 pr-1 py-1"><span class="text-[10px] text-white font-bold max-w-[110px] truncate">${safe}</span><button onclick="signOut()" class="bg-red-500/15 text-red-300 px-3 py-1.5 rounded-full text-[10px] font-black">Sign Out</button></div>`;
-                if (mobile) mobile.innerHTML = `<div class="col-span-2 flex items-center justify-between gap-3 bg-slate-800 border border-amber-500/30 rounded-xl p-3"><div class="min-w-0"><p class="text-[10px] text-slate-400">Masuk sebagai</p><p class="text-xs text-white font-bold truncate">${safe}</p></div><button onclick="signOut(); toggleMobileMenu()" class="shrink-0 bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-2.5 rounded-xl text-xs font-black"><i class="fas fa-sign-out-alt mr-1"></i> Sign Out</button></div>`;
-            } else {
-                if (desktop) desktop.innerHTML = `<button onclick="openAuthModal('signin')" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-2 rounded-full text-xs font-bold">Sign In</button><button onclick="openAuthModal('signup')" class="gold-gradient-btn text-slate-950 px-4 py-2 rounded-full text-xs font-black">Sign Up</button>`;
-                if (mobile) mobile.innerHTML = `<button onclick="openAuthModal('signin'); toggleMobileMenu()" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-3 rounded-xl text-xs font-bold"><i class="fas fa-sign-in-alt mr-1"></i> Sign In</button><button onclick="openAuthModal('signup'); toggleMobileMenu()" class="gold-gradient-btn text-slate-950 px-4 py-3 rounded-xl text-xs font-black"><i class="fas fa-user-plus mr-1"></i> Sign Up</button>`;
-            }
+            const desktop=document.getElementById('auth-action-container'), mobile=document.getElementById('mobile-auth-action-container');
+            if(name){ const safe=String(name).replace(/[<>&"']/g,''); if(desktop) desktop.innerHTML=`<div class="flex items-center gap-2 bg-slate-800 border border-amber-500/30 rounded-full pl-3 pr-1 py-1"><span class="text-[10px] text-white font-bold max-w-[110px] truncate">${safe}</span><button onclick="signOut()" class="bg-red-500/15 text-red-300 px-3 py-1.5 rounded-full text-[10px] font-black">Sign Out</button></div>`; if(mobile) mobile.innerHTML=`<div class="col-span-2 flex items-center justify-between gap-3 bg-slate-800 border border-amber-500/30 rounded-xl p-3"><p class="text-xs text-white font-bold truncate">${safe}</p><button onclick="signOut(); toggleMobileMenu()" class="bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-2.5 rounded-xl text-xs font-black">Sign Out</button></div>`; }
+            else { if(desktop) desktop.innerHTML=`<button onclick="openAuthModal('signin')" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-2 rounded-full text-xs font-bold">Sign In</button><button onclick="openAuthModal('signup')" class="gold-gradient-btn text-slate-950 px-4 py-2 rounded-full text-xs font-black">Sign Up</button>`; if(mobile) mobile.innerHTML=`<button onclick="openAuthModal('signin'); toggleMobileMenu()" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-3 rounded-xl text-xs font-bold">Sign In</button><button onclick="openAuthModal('signup'); toggleMobileMenu()" class="gold-gradient-btn text-slate-950 px-4 py-3 rounded-xl text-xs font-black">Sign Up</button>`; }
         };
-        window.finishLogin = function(name,msg){ generatedOtp=''; closeAuthModal(); window.renderAuthActions(name); showToast(msg); };
-        window.signOut = function(){ window.renderAuthActions(); showToast('Anda berhasil sign out'); };
+        window.finishLogin = function(name,msg){ generatedOtp=''; closeAuthModal(); renderAuthActions(name); showToast(msg); };
+        window.signOut = function(){ renderAuthActions(); showToast('Anda berhasil sign out'); };
 
         document.addEventListener('DOMContentLoaded', () => {
             window.renderProducts();
             window.renderCalendarPills();
             window.renderCommunityFeed();
             window.renderCartRecommendations();
+            window.updateUserPointsDisplay();
         });
     </script>
 </body>
