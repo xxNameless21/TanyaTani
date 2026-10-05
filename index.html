@@ -227,6 +227,12 @@
                     <div class="flex items-center gap-3"><i class="fas fa-users text-amber-400"></i> Komunitas & Inspirasi</div>
                     <i class="fas fa-chevron-right text-slate-500 text-xs"></i>
                 </button>
+                <div class="pt-4 mt-4 border-t border-slate-700/80">
+                    <div id="mobile-auth-action-container" class="grid grid-cols-2 gap-3">
+                        <button onclick="openAuthModal('signin'); toggleMobileMenu()" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-3 rounded-xl text-xs font-bold">Sign In</button>
+                        <button onclick="openAuthModal('signup'); toggleMobileMenu()" class="gold-gradient-btn text-slate-950 px-4 py-3 rounded-xl text-xs font-black">Sign Up</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -482,7 +488,7 @@
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
                             <button onclick="openDoctorChat('Dr. Muhamad Puncak Pamungkas, M.Si', 'Spesialis Monstera & Hama')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
-                                <i class="fas fa-comments"></i> Chat Sekarang
+                                <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
                             <button onclick="openBookingModal('Dr. Muhamad Puncak Pamungkas, M.Si')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
@@ -510,7 +516,7 @@
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
                             <button onclick="openDoctorChat('Maya Indah, S.P.', 'Pakar Nutrisi Tanah')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
-                                <i class="fas fa-comments"></i> Chat Sekarang
+                                <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
                             <button onclick="openBookingModal('Maya Indah, S.P.')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
@@ -538,7 +544,7 @@
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
                             <button onclick="openDoctorChat('Hendra Wijaya', 'IKEA Plant Specialist')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
-                                <i class="fas fa-comments"></i> Chat Sekarang
+                                <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
                             <button onclick="openBookingModal('Hendra Wijaya')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
@@ -804,28 +810,15 @@
     </div>
 
     <div id="checkoutModal" class="fixed inset-0 z-[90] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-gold rounded-[2.5rem] w-full max-w-md p-6 border border-amber-500/40 relative">
-            <button onclick="closeCheckout()" class="absolute top-6 right-6 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
-            <h3 class="text-xl font-black text-white mb-1">Pembayaran Pesanan</h3>
-            <p class="text-xs text-slate-400 mb-6">Selesaikan transfer sebelum batas waktu berakhir.</p>
-
-            <div class="p-4 bg-slate-900 rounded-2xl border border-amber-500/30 mb-6 text-center">
-                <p class="text-[10px] text-slate-400 uppercase font-bold">Total Pembayaran</p>
-                <p class="text-3xl font-black gold-gradient-text my-1" id="checkout-final-price">Rp 0</p>
-                <span class="text-xs text-red-400 font-bold bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 inline-block mt-1">
-                    <i class="far fa-clock"></i> Sisa Waktu: <span id="checkout-timer">15:00</span>
-                </span>
-            </div>
-
-            <div class="text-center bg-white p-6 rounded-2xl mb-6 shadow-inner">
-                <i class="fas fa-qrcode text-8xl text-slate-900"></i>
-                <p class="text-[10px] font-black text-slate-800 uppercase mt-2">Scan dengan GoPay / OVO / ShopeePay / BCA</p>
-            </div>
-
-            <button onclick="confirmPaymentSuccess()" class="w-full gold-gradient-btn text-slate-950 font-black py-3.5 rounded-xl text-xs shadow-xl">
-                Saya Sudah Membayar
-            </button>
-        </div>
+      <div class="glass-gold rounded-[2.5rem] w-full max-w-lg p-6 border border-amber-500/40 relative max-h-[94vh] overflow-y-auto">
+        <button onclick="closeCheckout()" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
+        <h3 class="text-xl font-black text-white">Pembayaran Pesanan</h3><p class="text-xs text-slate-400 mb-5">Pilih QRIS atau Virtual Account.</p>
+        <div class="p-4 bg-slate-900 rounded-2xl border border-amber-500/30 mb-4 text-center"><p class="text-[10px] text-slate-400 uppercase font-bold">Total Pembayaran</p><p class="text-3xl font-black gold-gradient-text" id="checkout-final-price">Rp 0</p><span class="text-xs text-red-400 font-bold"><i class="far fa-clock"></i> Sisa Waktu: <span id="checkout-timer">15:00</span></span></div>
+        <div class="grid grid-cols-2 gap-2 mb-4"><button id="payment-tab-qris" onclick="selectPaymentMethod('qris')" class="gold-gradient-bg text-slate-950 font-black py-3 rounded-xl text-xs">QRIS</button><button id="payment-tab-va" onclick="selectPaymentMethod('va')" class="bg-slate-800 text-slate-300 border border-slate-700 font-bold py-3 rounded-xl text-xs">Virtual Account</button></div>
+        <div id="payment-qris-panel" class="bg-white p-5 rounded-2xl mb-5 text-center"><img src="qris-pembayaran.png" alt="QRIS pembayaran" class="w-64 max-w-full mx-auto"><p class="text-[10px] text-slate-800 font-black mt-2">PINDAI QRIS DENGAN APLIKASI PEMBAYARAN</p></div>
+        <div id="payment-va-panel" class="hidden space-y-3 mb-5"><select id="va-bank-select" onchange="updateVaDetails()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs"><option value="bca">BCA Virtual Account</option><option value="bni">BNI Virtual Account</option><option value="bri">BRI Virtual Account</option><option value="mandiri">Mandiri Virtual Account</option><option value="permata">Permata Virtual Account</option><option value="shopeepay">ShopeePay</option></select><div class="bg-slate-900 border border-amber-500/30 rounded-2xl p-4"><p id="va-provider-name" class="text-xs text-amber-300 font-black">BCA Virtual Account</p><div class="flex gap-2 mt-2"><code id="va-number" class="flex-1 bg-slate-950 text-white px-3 py-2 rounded-lg">88081234567890</code><button onclick="copyVaNumber()" class="bg-amber-400 text-black px-3 rounded-lg"><i class="far fa-copy"></i></button></div><p class="text-[10px] text-slate-500 mt-2">Nomor ini contoh. Integrasikan payment gateway untuk transaksi nyata.</p></div></div>
+        <button onclick="confirmPaymentSuccess()" class="w-full gold-gradient-btn text-slate-950 font-black py-3.5 rounded-xl text-xs">Saya Sudah Membayar</button>
+      </div>
     </div>
 
     <div id="doctorChatModal" class="fixed inset-0 z-[100] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
@@ -1339,10 +1332,14 @@
             });
         };
 
+        const expertChatCost = 50;
+        window.updateUserPointsDisplay = function(){ const el=document.getElementById('user-points-display'); if(el) el.innerText=userPoints; };
         window.openDoctorChat = function(name, role) {
-            document.getElementById('chat-doctor-name').innerText = name;
-            document.getElementById('chat-doctor-role').innerText = role;
-            window.toggleModal('doctorChatModal');
+            if(userPoints < expertChatCost){ showToast('Poin tidak cukup. Chat ahli membutuhkan 50 poin.'); return; }
+            userPoints -= expertChatCost; updateUserPointsDisplay();
+            document.getElementById('chat-doctor-name').innerText=name; document.getElementById('chat-doctor-role').innerText=role;
+            document.getElementById('doctorChatModal').classList.remove('hidden');
+            showToast(`50 poin digunakan. Sisa ${userPoints} poin.`);
         };
 
         window.sendDoctorChat = function() {
@@ -1466,28 +1463,17 @@
             });
         };
 
-        window.openCheckout = function() {
-            if (cart.length === 0) {
-                window.showToast('Keranjang Anda masih kosong');
-                return;
-            }
-            window.toggleCart();
-            const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
-            const discount = (subtotal * appliedDiscountPercent) / 100;
-            document.getElementById('checkout-final-price').innerText = formatRupiah(subtotal - discount);
-            document.getElementById('checkoutModal').classList.remove('hidden');
-        };
-
-        window.closeCheckout = function() {
-            document.getElementById('checkoutModal').classList.add('hidden');
-        };
-
-        window.confirmPaymentSuccess = function() {
-            window.closeCheckout();
-            cart = [];
-            window.updateCartUI();
-            window.showToast('Pembayaran Berhasil! Pesanan Sedang Diproses.');
-        };
+        let checkoutTimerInterval=null, checkoutSecondsRemaining=900;
+        const vaOptions={bca:['BCA Virtual Account','88081234567890'],bni:['BNI Virtual Account','98881234567890'],bri:['BRI Virtual Account','12881234567890'],mandiri:['Mandiri Virtual Account','888081234567890'],permata:['Permata Virtual Account','85281234567890'],shopeepay:['ShopeePay','081234567890']};
+        window.renderCheckoutTimer=function(){ const el=document.getElementById('checkout-timer'); if(el) el.innerText=`${String(Math.floor(checkoutSecondsRemaining/60)).padStart(2,'0')}:${String(checkoutSecondsRemaining%60).padStart(2,'0')}`; };
+        window.stopCheckoutTimer=function(){ if(checkoutTimerInterval){clearInterval(checkoutTimerInterval);checkoutTimerInterval=null;} };
+        window.startCheckoutTimer=function(){ stopCheckoutTimer(); checkoutSecondsRemaining=900; renderCheckoutTimer(); checkoutTimerInterval=setInterval(()=>{checkoutSecondsRemaining--;renderCheckoutTimer();if(checkoutSecondsRemaining<=0){stopCheckoutTimer();document.getElementById('checkoutModal').classList.add('hidden');showToast('Waktu pembayaran telah habis.');}},1000); };
+        window.selectPaymentMethod=function(method){ const q=method==='qris'; document.getElementById('payment-qris-panel').classList.toggle('hidden',!q);document.getElementById('payment-va-panel').classList.toggle('hidden',q);document.getElementById('payment-tab-qris').className=q?'gold-gradient-bg text-slate-950 font-black py-3 rounded-xl text-xs':'bg-slate-800 text-slate-300 border border-slate-700 font-bold py-3 rounded-xl text-xs';document.getElementById('payment-tab-va').className=!q?'gold-gradient-bg text-slate-950 font-black py-3 rounded-xl text-xs':'bg-slate-800 text-slate-300 border border-slate-700 font-bold py-3 rounded-xl text-xs'; };
+        window.updateVaDetails=function(){ const d=vaOptions[document.getElementById('va-bank-select').value];document.getElementById('va-provider-name').innerText=d[0];document.getElementById('va-number').innerText=d[1]; };
+        window.copyVaNumber=function(){ const v=document.getElementById('va-number').innerText; if(navigator.clipboard) navigator.clipboard.writeText(v); showToast('Nomor pembayaran disalin'); };
+        window.openCheckout=function(){ if(cart.length===0){showToast('Keranjang Anda masih kosong');return;} toggleCart(); const subtotal=cart.reduce((a,i)=>a+i.price*i.qty,0),discount=subtotal*appliedDiscountPercent/100;document.getElementById('checkout-final-price').innerText=formatRupiah(subtotal-discount);document.getElementById('checkoutModal').classList.remove('hidden');selectPaymentMethod('qris');startCheckoutTimer(); };
+        window.closeCheckout=function(){stopCheckoutTimer();document.getElementById('checkoutModal').classList.add('hidden');};
+        window.confirmPaymentSuccess=function(){closeCheckout();cart=[];updateCartUI();showToast('Pembayaran Berhasil! Pesanan Sedang Diproses.');};
 
         let currentAuthMode = 'signin', generatedOtp = '', selectedSocialProvider = 'Google';
         window.openAuthModal = function(type) {
@@ -1504,8 +1490,9 @@
         window.submitEmailAuth = function(ev){ ev.preventDefault(); const otp=document.getElementById('auth-otp').value.trim(), email=document.getElementById('auth-email').value.trim(); if(!generatedOtp){showToast('Kirim OTP terlebih dahulu');return;} if(otp!==generatedOtp){showToast('Kode OTP tidak sesuai');return;} finishLogin(email, currentAuthMode==='signup'?'Pendaftaran berhasil':'Login berhasil'); };
         window.openSocialLoginPopup = function(p){ selectedSocialProvider=p; const m={Google:'fab fa-google text-3xl text-red-500',Microsoft:'fab fa-microsoft text-3xl text-blue-600',Apple:'fab fa-apple text-3xl text-slate-900'}; document.getElementById('social-provider-icon').className=m[p]; document.getElementById('social-provider-title').innerText=`Masuk dengan ${p}`; document.getElementById('socialLoginModal').classList.remove('hidden'); };
         window.completeSocialLogin = function(){ document.getElementById('socialLoginModal').classList.add('hidden'); finishLogin(`Pengguna ${selectedSocialProvider}`,`Login via ${selectedSocialProvider} berhasil`); };
-        window.finishLogin = function(name,msg){ generatedOtp=''; closeAuthModal(); const safe=String(name).replace(/[<>&"']/g,''); document.getElementById('auth-action-container').innerHTML=`<div class="flex items-center gap-2 bg-slate-800 border border-amber-500/30 rounded-full pl-3 pr-1 py-1"><span class="text-[10px] text-white font-bold max-w-[110px] truncate">${safe}</span><button onclick="signOut()" class="bg-red-500/15 text-red-300 px-3 py-1.5 rounded-full text-[10px] font-black">Sign Out</button></div>`; showToast(msg); };
-        window.signOut = function(){ document.getElementById('auth-action-container').innerHTML=`<button onclick="openAuthModal('signin')" class="bg-slate-800 text-amber-300 border border-amber-500/30 px-4 py-2 rounded-full text-xs font-bold">Sign In</button><button onclick="openAuthModal('signup')" class="gold-gradient-btn text-slate-950 px-4 py-2 rounded-full text-xs font-black">Sign Up</button>`; showToast('Anda berhasil sign out'); };
+        window.renderAuthActions=function(name=''){const d=document.getElementById('auth-action-container'),m=document.getElementById('mobile-auth-action-container');if(name){const safe=String(name).replace(/[<>&"']/g,'');if(d)d.innerHTML=`<div class="flex gap-2 items-center"><span class="text-xs text-white">${safe}</span><button onclick="signOut()" class="text-red-300 text-xs">Sign Out</button></div>`;if(m)m.innerHTML=`<div class="col-span-2 flex justify-between items-center bg-slate-800 p-3 rounded-xl"><span class="text-xs text-white truncate">${safe}</span><button onclick="signOut();toggleMobileMenu()" class="text-red-300 text-xs font-black">Sign Out</button></div>`;}else{if(d)d.innerHTML=`<button onclick="openAuthModal('signin')" class="bg-slate-800 text-amber-300 px-4 py-2 rounded-full text-xs">Sign In</button><button onclick="openAuthModal('signup')" class="gold-gradient-btn text-black px-4 py-2 rounded-full text-xs">Sign Up</button>`;if(m)m.innerHTML=`<button onclick="openAuthModal('signin');toggleMobileMenu()" class="bg-slate-800 text-amber-300 p-3 rounded-xl text-xs">Sign In</button><button onclick="openAuthModal('signup');toggleMobileMenu()" class="gold-gradient-btn text-black p-3 rounded-xl text-xs">Sign Up</button>`;}};
+        window.finishLogin=function(name,msg){generatedOtp='';closeAuthModal();renderAuthActions(name);showToast(msg);};
+        window.signOut=function(){renderAuthActions();showToast('Anda berhasil sign out');};
 
         document.addEventListener('DOMContentLoaded', () => {
             window.renderProducts();
