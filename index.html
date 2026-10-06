@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TanyaTani × IKEA — Premium Gold Edition</title>
+    <title>TanyaTani — Natural Modern</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -99,7 +99,49 @@
             100% { transform: translate(0px, 0px) scale(1); }
         }
         .animate-blob { animation: blob 9s infinite; }
-    </style>
+    
+        /* TanyaTani Natural Palette: based on supplied color guide */
+        :root {
+            --primary: #0B4F3C;
+            --secondary: #6FA83A;
+            --accent: #A8CF67;
+            --background: #F7F8F2;
+            --surface: #E8F0DE;
+            --main-text: #18352C;
+            --secondary-text: #6F7D76;
+            --warning: #E9A23B;
+            --error: #D95C59;
+        }
+        body { background: var(--background) !important; color: var(--main-text) !important; }
+        .gold-gradient-text { background: linear-gradient(135deg, #0B4F3C, #6FA83A, #A8CF67); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .gold-gradient-bg, .gold-gradient-btn { background: linear-gradient(135deg, #0B4F3C, #6FA83A) !important; color:#F7F8F2 !important; box-shadow:0 5px 18px rgba(11,79,60,.22) !important; }
+        .gold-gradient-btn:hover { background:linear-gradient(135deg,#18352C,#6FA83A) !important; }
+        .glass-gold { background:rgba(247,248,242,.94) !important; border-color:rgba(11,79,60,.18) !important; color:#18352C !important; }
+        .glass-card { background:rgba(232,240,222,.88) !important; border-color:rgba(11,79,60,.14) !important; color:#18352C !important; }
+        .gold-glow { box-shadow:0 12px 35px rgba(11,79,60,.18) !important; }
+        nav.glass-gold { background:rgba(247,248,242,.96) !important; }
+        .bg-slate-950, .bg-slate-950\/60, .bg-slate-950\/80, .bg-slate-950\/85 { background-color:#F7F8F2 !important; }
+        .bg-slate-900, .bg-slate-900\/80, .bg-slate-900\/90 { background-color:#E8F0DE !important; }
+        .bg-slate-800, .bg-slate-800\/80, .bg-slate-800\/90 { background-color:#DCE8D2 !important; }
+        .bg-slate-700 { background-color:#CAD8C1 !important; }
+        .text-white, .text-slate-950 { color:#18352C !important; }
+        .text-slate-200, .text-slate-300 { color:#425C53 !important; }
+        .text-slate-400, .text-slate-500 { color:#6F7D76 !important; }
+        .text-amber-300, .text-amber-400, .text-yellow-400, .text-yellow-300 { color:#6FA83A !important; }
+        .bg-amber-400, .bg-amber-500 { background-color:#A8CF67 !important; }
+        .border-amber-500\/20, .border-amber-500\/30, .border-amber-500\/40, .border-amber-500\/50, .border-yellow-400\/30 { border-color:rgba(11,79,60,.25) !important; }
+        .border-slate-700, .border-slate-800 { border-color:rgba(11,79,60,.16) !important; }
+        .bg-gradient-to-r.from-amber-600 { background:linear-gradient(90deg,#0B4F3C,#6FA83A,#A8CF67) !important; color:#F7F8F2 !important; }
+        input, select, textarea { background:#F7F8F2 !important; color:#18352C !important; border-color:rgba(11,79,60,.25) !important; }
+        input::placeholder, textarea::placeholder { color:#6F7D76 !important; }
+        #cartModal, #checkoutModal, #doctorChatModal, #doctorBookingModal, #scheduleModal, #authModal, #socialLoginModal { background-color:rgba(24,53,44,.55) !important; }
+        #payment-qris-panel { background:#fff !important; }
+        .scan-laser { background:linear-gradient(90deg,transparent,#A8CF67,#0B4F3C,#A8CF67,transparent); box-shadow:0 0 15px #6FA83A; }
+        ::-webkit-scrollbar-track { background:#E8F0DE; } ::-webkit-scrollbar-thumb { background:#6FA83A; }
+        @media (max-width: 1023px) {
+            #mobile-points-display { display:flex !important; }
+        }
+</style>
     
     <script>
         tailwind.config = {
@@ -123,7 +165,7 @@
 <body class="antialiased selection:bg-amber-400 selection:text-black">
 
     <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-700 text-slate-950 font-bold text-xs py-2 px-4 text-center flex justify-center items-center gap-3 shadow-md relative z-50">
-        <span class="bg-black/20 px-2 py-0.5 rounded-full text-[10px] tracking-wider uppercase font-black">Eksklusif Gold</span>
+        <span class="bg-black/20 px-2 py-0.5 rounded-full text-[10px] tracking-wider uppercase font-black">TanyaTani</span>
         <span>Gunakan kupon <strong class="underline decoration-black">GOLD2026</strong> untuk diskon 15% + Bebas Ongkir IKEA Package!</span>
         <button onclick="dailyCheckIn()" class="bg-black text-amber-300 hover:bg-slate-900 px-3 py-0.5 rounded-full text-[11px] font-black tracking-wide transition-all shadow">
             <i class="fas fa-coins text-amber-400 mr-1"></i> Check-in Harian (+20 Poin)
@@ -135,22 +177,9 @@
             <div class="flex justify-between items-center h-20">
                 
                 <!-- Brand Logo Lockup -->
-                <div class="flex items-center cursor-pointer group" onclick="showSection('home')">
-                    <div class="flex items-center gap-3">
-                        <div class="relative w-11 h-11 flex items-center justify-center bg-gradient-to-br from-emerald-950 to-slate-900 rounded-2xl border border-amber-500/40 shadow-lg group-hover:scale-105 transition-all">
-                            <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M42 12C34 16 18 30 18 52C18 72 32 88 50 94C50 94 45 74 52 50C58 28 42 12 42 12Z" fill="#D4AF37"/>
-                                <path d="M52 20C62 24 82 38 82 62C82 80 68 92 50 96C50 96 56 74 48 50C40 28 52 20 52 20Z" fill="#10B981"/>
-                                <path d="M50 54C50 72 48 94 48 94" stroke="#F1C40F" stroke-width="4" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="font-extrabold text-2xl tracking-tight text-white block leading-none">Tanya<span class="gold-gradient-text">Tani</span></span>
-                            <span class="text-[9px] font-bold text-amber-400/80 tracking-widest uppercase">Gold Luxe Edition</span>
-                        </div>
-                    </div>
+                <div class="flex items-center cursor-pointer group shrink-0" onclick="showSection('home')">
+                    <img src="logo-tanyatani.jpg" alt="TanyaTani" class="h-12 sm:h-14 w-auto max-w-[150px] sm:max-w-[190px] object-contain rounded-xl group-hover:scale-[1.02] transition-transform">
                 </div>
-
                 <!-- Desktop Nav Links -->
                 <div class="hidden lg:flex items-center space-x-1">
                     <button onclick="showSection('home')" class="nav-btn px-3 py-2 rounded-full text-xs font-bold text-slate-300 hover:text-amber-300 hover:bg-slate-800/80 transition-all">Beranda</button>
@@ -184,7 +213,10 @@
                 </div>
 
                 <!-- Mobile Header Right -->
-                <div class="flex items-center lg:hidden gap-3">
+                <div class="flex items-center lg:hidden gap-2">
+                    <div id="mobile-points-display" class="flex items-center gap-1 px-2.5 py-2 bg-[#E8F0DE] border border-[#0B4F3C]/20 text-[#0B4F3C] rounded-full text-[10px] font-black" title="Poin Saya">
+                        <i class="fas fa-coins text-[#6FA83A]"></i><span data-user-points>250</span> Pts
+                    </div>
                     <button onclick="toggleCart()" class="relative p-2 rounded-full bg-slate-800 text-amber-300 border border-amber-500/30">
                         <i class="fas fa-shopping-bag text-sm"></i>
                         <span id="mobile-cart-badge" class="absolute -top-1 -right-1 bg-amber-500 text-black font-black text-[9px] w-4 h-4 flex items-center justify-center rounded-full hidden">0</span>
@@ -503,9 +535,9 @@
                         </div>
                         <div>
                             <div class="flex items-center gap-4 mb-4">
-                                <img src="https://images.unsplash.com/photo-1594824813566-7885a3977336?auto=format&fit=crop&w=300&q=80" class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
+                                <img src="profil-andika-putra.jpg" class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
                                 <div>
-                                    <h3 class="text-base font-black text-white">Maya Indah, S.P.</h3>
+                                    <h3 class="text-base font-black text-white">Andika Putra, S.P.</h3>
                                     <p class="text-xs text-amber-400 font-bold">Pakar Nutrisi Soil & Hydroponics</p>
                                     <div class="flex items-center gap-1 text-xs text-yellow-400 mt-1">
                                         <i class="fas fa-star text-[10px]"></i> <span class="font-black text-white">5.0</span> <span class="text-slate-400 text-[10px]">(98 Sesi)</span>
@@ -515,10 +547,10 @@
                             <p class="text-slate-300 text-xs leading-relaxed mb-6">Konsultan formula racikan pupuk mikro/makro dan penyesuaian pH tanah untuk pertumbuhan daun lebar dan rimbun.</p>
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
-                            <button onclick="openDoctorChat('Maya Indah, S.P.', 'Pakar Nutrisi Tanah')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
+                            <button onclick="openDoctorChat('Andika Putra, S.P.', 'Pakar Nutrisi Tanah')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
                                 <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
-                            <button onclick="openBookingModal('Maya Indah, S.P.')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
+                            <button onclick="openBookingModal('Andika Putra, S.P.')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
                             </button>
                         </div>
@@ -531,9 +563,9 @@
                         </div>
                         <div>
                             <div class="flex items-center gap-4 mb-4">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
+                                <img src="profil-kayla-mutia.jpg" class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
                                 <div>
-                                    <h3 class="text-base font-black text-white">Hendra Wijaya</h3>
+                                    <h3 class="text-base font-black text-white">Kayla Mutia Salsabila</h3>
                                     <p class="text-xs text-amber-400 font-bold">Plant Interior Specialist IKEA</p>
                                     <div class="flex items-center gap-1 text-xs text-yellow-400 mt-1">
                                         <i class="fas fa-star text-[10px]"></i> <span class="font-black text-white">4.8</span> <span class="text-slate-400 text-[10px]">(210 Sesi)</span>
@@ -543,13 +575,34 @@
                             <p class="text-slate-300 text-xs leading-relaxed mb-6">Ahli penataan *Plant Corner* indoor rumah, memadukan jenis pot IKEA, rak SATSUMAS, dan estetika lampu pencahayaan.</p>
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex gap-2">
-                            <button onclick="openDoctorChat('Hendra Wijaya', 'IKEA Plant Specialist')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
+                            <button onclick="openDoctorChat('Kayla Mutia Salsabila', 'IKEA Plant Specialist')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">
                                 <i class="fas fa-comments"></i> Chat Sekarang · 50 Pts
                             </button>
-                            <button onclick="openBookingModal('Hendra Wijaya')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
+                            <button onclick="openBookingModal('Kayla Mutia Salsabila')" class="px-3 py-2.5 bg-slate-800 text-amber-300 hover:bg-slate-700 border border-amber-500/30 rounded-xl text-xs font-bold">
                                 <i class="far fa-calendar-alt"></i>
                             </button>
                         </div>
+                    </div>
+
+                    <!-- Expert 4 -->
+                    <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/30 relative flex flex-col justify-between group hover:border-amber-400 transition-all" data-category="doctor">
+                        <div class="absolute top-5 right-5 bg-emerald-500/20 text-emerald-500 border border-emerald-500/40 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Online</div>
+                        <div><div class="flex items-center gap-4 mb-4"><img src="profil-zaskya-nafisha.jpg" alt="Foto profil ahli" class="w-16 h-16 rounded-2xl object-cover object-top border-2 border-amber-400 shadow-md"><div><h3 class="text-base font-black text-white">Zaskya Nafisha, S.P., M.Si</h3><p class="text-xs text-amber-400 font-bold">Spesialis Hama & Penyakit Daun</p><div class="flex items-center gap-1 text-xs text-yellow-400 mt-1"><i class="fas fa-star text-[10px]"></i><span class="font-black text-white">4.9</span><span class="text-slate-400 text-[10px]">(126 Sesi)</span></div></div></div><p class="text-slate-300 text-xs leading-relaxed mb-6">Fokus pada identifikasi hama, bercak daun, jamur, dan strategi pengendalian terpadu untuk tanaman indoor.</p></div>
+                        <div class="pt-4 border-t border-slate-800 flex gap-2"><button onclick="openDoctorChat('Zaskya Nafisha, S.P., M.Si', 'Spesialis Hama & Penyakit Daun')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow"><i class="fas fa-comments"></i> Chat Sekarang · 50 Pts</button><button onclick="openBookingModal('Zaskya Nafisha, S.P., M.Si')" class="px-3 py-2.5 bg-slate-800 text-amber-300 border border-amber-500/30 rounded-xl text-xs font-bold"><i class="far fa-calendar-alt"></i></button></div>
+                    </div>
+
+                    <!-- Expert 5 -->
+                    <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/30 relative flex flex-col justify-between group hover:border-amber-400 transition-all" data-category="nutrition">
+                        <div class="absolute top-5 right-5 bg-emerald-500/20 text-emerald-500 border border-emerald-500/40 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Online</div>
+                        <div><div class="flex items-center gap-4 mb-4"><img src="profil-salwa-kaisar-indah.jpg" alt="Foto profil ahli" class="w-16 h-16 rounded-2xl object-cover object-top border-2 border-amber-400 shadow-md"><div><h3 class="text-base font-black text-white">Salwa Kaisar Indah, S.P.</h3><p class="text-xs text-amber-400 font-bold">Ahli Media Tanam & Pemupukan</p><div class="flex items-center gap-1 text-xs text-yellow-400 mt-1"><i class="fas fa-star text-[10px]"></i><span class="font-black text-white">4.8</span><span class="text-slate-400 text-[10px]">(114 Sesi)</span></div></div></div><p class="text-slate-300 text-xs leading-relaxed mb-6">Membantu menentukan komposisi media tanam, jadwal nutrisi, dan penyesuaian kebutuhan tanaman berdasarkan kondisi ruang.</p></div>
+                        <div class="pt-4 border-t border-slate-800 flex gap-2"><button onclick="openDoctorChat('Salwa Kaisar Indah, S.P.', 'Ahli Media Tanam & Pemupukan')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow"><i class="fas fa-comments"></i> Chat Sekarang · 50 Pts</button><button onclick="openBookingModal('Salwa Kaisar Indah, S.P.')" class="px-3 py-2.5 bg-slate-800 text-amber-300 border border-amber-500/30 rounded-xl text-xs font-bold"><i class="far fa-calendar-alt"></i></button></div>
+                    </div>
+
+                    <!-- Expert 6 -->
+                    <div class="glass-card p-6 rounded-[2.5rem] border border-amber-500/30 relative flex flex-col justify-between group hover:border-amber-400 transition-all" data-category="designer">
+                        <div class="absolute top-5 right-5 bg-amber-500/20 text-amber-500 border border-amber-500/40 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase flex items-center gap-1"><i class="far fa-clock"></i> Tersedia Hari Ini</div>
+                        <div><div class="flex items-center gap-4 mb-4"><img src="profil-nufi-diah-ayu.jpg" alt="Foto profil ahli" class="w-16 h-16 rounded-2xl object-cover object-top border-2 border-amber-400 shadow-md"><div><h3 class="text-base font-black text-white">Nufi Diah Ayu, S.Ds.</h3><p class="text-xs text-amber-400 font-bold">Desainer Plant Corner Minimalis</p><div class="flex items-center gap-1 text-xs text-yellow-400 mt-1"><i class="fas fa-star text-[10px]"></i><span class="font-black text-white">4.9</span><span class="text-slate-400 text-[10px]">(167 Sesi)</span></div></div></div><p class="text-slate-300 text-xs leading-relaxed mb-6">Memberikan rekomendasi tata letak, pencahayaan, rak, dan kombinasi tanaman untuk sudut hijau yang rapi serta fungsional.</p></div>
+                        <div class="pt-4 border-t border-slate-800 flex gap-2"><button onclick="openDoctorChat('Nufi Diah Ayu, S.Ds.', 'Desainer Plant Corner Minimalis')" class="flex-1 gold-gradient-btn text-slate-950 font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow"><i class="fas fa-comments"></i> Chat Sekarang · 50 Pts</button><button onclick="openBookingModal('Nufi Diah Ayu, S.Ds.')" class="px-3 py-2.5 bg-slate-800 text-amber-300 border border-amber-500/30 rounded-xl text-xs font-bold"><i class="far fa-calendar-alt"></i></button></div>
                     </div>
                 </div>
             </div>
@@ -762,7 +815,7 @@
     <div id="cartModal" class="fixed inset-0 z-[80] hidden bg-slate-950/80 backdrop-blur-md">
         <div class="absolute inset-y-0 right-0 max-w-md w-full glass-gold shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cartPanel">
             <div class="p-6 border-b border-slate-800 flex justify-between items-center">
-                <h3 class="text-lg font-black text-white flex items-center gap-2"><i class="fas fa-shopping-bag text-amber-400"></i> Tas Belanja VIP</h3>
+                <h3 class="text-lg font-black text-white flex items-center gap-2"><i class="fas fa-shopping-bag text-amber-400"></i> Tas Belanja </h3>
                 <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fas fa-times"></i>
                 </button>
@@ -907,7 +960,7 @@
     <div id="authModal" class="fixed inset-0 z-[100] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
       <div class="glass-gold rounded-[2.5rem] w-full max-w-md p-6 border border-amber-500/40 relative max-h-[92vh] overflow-y-auto">
         <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
-        <h3 class="text-2xl font-black text-white mb-1" id="auth-modal-title">Sign In VIP</h3>
+        <h3 class="text-2xl font-black text-white mb-1" id="auth-modal-title">Sign In </h3>
         <p class="text-xs text-slate-400 mb-5" id="auth-modal-subtitle">Masuk dengan email, password, dan kode OTP.</p>
         <form id="auth-form" class="space-y-3" onsubmit="submitEmailAuth(event)">
           <div><label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Email</label><input id="auth-email" type="email" autocomplete="email" required placeholder="nama@email.com" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400"></div>
@@ -999,8 +1052,7 @@
 
         window.dailyCheckIn = function() {
             userPoints += 20;
-            const display = document.getElementById('user-points-display');
-            if (display) display.innerText = userPoints;
+            window.updateUserPointsDisplay();
             window.showToast('Klaim Bonus Harian Berhasil! (+20 Pts)');
         };
 
@@ -1333,7 +1385,11 @@
         };
 
         const expertChatCost = 50;
-        window.updateUserPointsDisplay = function(){ const el=document.getElementById('user-points-display'); if(el) el.innerText=userPoints; };
+        window.updateUserPointsDisplay = function(){
+            const desktop=document.getElementById('user-points-display');
+            if(desktop) desktop.innerText=userPoints;
+            document.querySelectorAll('[data-user-points]').forEach(el=>el.innerText=userPoints);
+        };
         window.openDoctorChat = function(name, role) {
             if(userPoints < expertChatCost){ showToast('Poin tidak cukup. Chat ahli membutuhkan 50 poin.'); return; }
             userPoints -= expertChatCost; updateUserPointsDisplay();
@@ -1478,7 +1534,7 @@
         let currentAuthMode = 'signin', generatedOtp = '', selectedSocialProvider = 'Google';
         window.openAuthModal = function(type) {
             currentAuthMode = type; const up = type === 'signup';
-            document.getElementById('auth-modal-title').innerText = up ? 'Sign Up VIP' : 'Sign In VIP';
+            document.getElementById('auth-modal-title').innerText = up ? 'Sign Up ' : 'Sign In ';
             document.getElementById('auth-modal-subtitle').innerText = up ? 'Buat akun dengan email, password, dan OTP.' : 'Masuk dengan email, password, dan kode OTP.';
             document.getElementById('auth-submit-btn').innerText = up ? 'Daftar dengan Email' : 'Masuk dengan Email';
             document.getElementById('auth-modal-footer').innerHTML = up ? `Sudah punya akun? <button onclick="openAuthModal('signin')" class="text-amber-400 font-bold">Sign In</button>` : `Belum punya akun? <button onclick="openAuthModal('signup')" class="text-amber-400 font-bold">Sign Up</button>`;
