@@ -327,7 +327,7 @@
                             <div class="relative w-full max-w-md mx-auto">
                                 <div class="glass-gold p-4 rounded-[2.5rem] gold-glow relative">
                                     <div class="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
-                                        <img src="foto-plant-corner-basic.png" alt="IKEA Plant Corner Luxe" class="w-full h-full object-cover">                                        
+                                        <img src="foto-plant-corner-basic.png" alt="Plant Corner Basic" onclick="openImageFullscreen('foto-plant-corner-basic.png', 'Plant Corner Basic')" class="w-full h-full object-cover cursor-zoom-in" title="Klik untuk melihat foto penuh">                                        
                                         </div>
                                     </div>
                                 </div>
@@ -806,6 +806,14 @@
 
     </main>
 
+    <!-- FULLSCREEN IMAGE VIEWER -->
+    <div id="imageFullscreenModal" class="fixed inset-0 z-[150] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6" onclick="closeImageFullscreen(event)">
+        <button type="button" onclick="closeImageFullscreen()" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center z-10" aria-label="Tutup foto penuh">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <img id="fullscreenImage" src="" alt="Foto penuh" class="max-w-full max-h-full w-auto h-auto object-contain rounded-xl shadow-2xl" onclick="event.stopPropagation()">
+    </div>
+
     <div id="cartModal" class="fixed inset-0 z-[80] hidden bg-slate-950/80 backdrop-blur-md">
         <div class="absolute inset-y-0 right-0 max-w-md w-full glass-gold shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cartPanel">
             <div class="p-6 border-b border-slate-800 flex justify-between items-center">
@@ -1024,6 +1032,23 @@
             container.appendChild(toast);
             setTimeout(() => toast.remove(), 3000);
         };
+
+        window.openImageFullscreen = function(src, alt) {
+            const modal = document.getElementById('imageFullscreenModal');
+            const image = document.getElementById('fullscreenImage');
+            image.src = src;
+            image.alt = alt || 'Foto penuh';
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        };
+        window.closeImageFullscreen = function(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('imageFullscreenModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        };
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') window.closeImageFullscreen();
+        });
 
         window.showSection = function(id) {
             document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
