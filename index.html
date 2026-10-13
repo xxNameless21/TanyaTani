@@ -141,6 +141,166 @@
         @media (max-width: 1023px) {
             #mobile-points-display { display:flex !important; }
         }
+
+/* ===== MODE AHLI ===== */
+#expert-app.hidden{display:none !important}
+#expert-app{min-height:100vh;background:#F7F8F2;color:#18352C;font-family:'Plus Jakarta Sans',sans-serif}
+#expert-app *{box-sizing:border-box}
+#expert-app button{cursor:pointer}
+.ex-header{position:sticky;top:0;z-index:40;background:rgba(247,248,242,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,79,60,.16)}
+.ex-header-inner{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ex-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.ex-logo{width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;background:#E8F0DE}
+.ex-brand-name{display:block;font-weight:900;font-size:18px;line-height:1.1;color:#0B4F3C;letter-spacing:-.01em}
+.ex-brand-name span{color:#6FA83A}
+.ex-badge-mode{display:inline-flex;align-items:center;gap:5px;margin-top:3px;padding:2px 8px;border-radius:999px;background:#0B4F3C;color:#F7F8F2;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.ex-header-right{display:flex;align-items:center;gap:10px}
+.ex-status-wrap{display:flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid rgba(11,79,60,.2);border-radius:999px;background:#fff}
+.ex-status-wrap select{border:0 !important;background:transparent !important;font-size:12px;font-weight:800;color:#18352C !important;outline:none;padding:0 2px;width:auto}
+.ex-dot{width:9px;height:9px;border-radius:50%;background:#6FA83A;box-shadow:0 0 0 3px rgba(111,168,58,.2)}
+.ex-dot.busy{background:#E9A23B;box-shadow:0 0 0 3px rgba(233,162,59,.25)}
+.ex-dot.offline{background:#9aa59f;box-shadow:0 0 0 3px rgba(154,165,159,.25)}
+.ex-user{display:flex;align-items:center;gap:9px}
+.ex-user img{width:38px;height:38px;border-radius:12px;object-fit:cover;object-position:top;border:2px solid #A8CF67;background:#E8F0DE}
+.ex-user-meta{display:flex;flex-direction:column;line-height:1.2;max-width:170px}
+.ex-user-meta strong{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ex-user-meta small{font-size:10px;color:#6F7D76;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ex-tabs{max-width:1200px;margin:0 auto;padding:0 12px 8px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.ex-tabs::-webkit-scrollbar{display:none}
+.ex-tab{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;border:1px solid transparent;background:transparent;color:#425C53;font-size:12px;font-weight:700;font-family:inherit;white-space:nowrap}
+.ex-tab:hover{background:#E8F0DE}
+.ex-tab.active{background:#0B4F3C;color:#F7F8F2;box-shadow:0 4px 14px rgba(11,79,60,.25)}
+.ex-count{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#D95C59;color:#fff;font-size:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.ex-main{max-width:1200px;margin:0 auto;padding:20px 16px 60px}
+.ex-h1{font-size:24px;font-weight:900;letter-spacing:-.02em;margin:0}
+.ex-sub{font-size:12px;color:#6F7D76;margin-top:3px;font-weight:500}
+.ex-view-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.ex-card{background:#fff;border:1px solid rgba(11,79,60,.12);border-radius:20px;padding:18px;box-shadow:0 6px 24px rgba(11,79,60,.06)}
+.ex-card.soft{background:#E8F0DE;box-shadow:none}
+.ex-card-title{font-size:13px;font-weight:800;margin:0 0 12px;display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ex-card-title span{display:inline-flex;align-items:center;gap:8px}
+.ex-card-title i{color:#6FA83A}
+.ex-link{border:0;background:none;color:#6FA83A;font-size:11px;font-weight:800;font-family:inherit;padding:0}
+.ex-hero{background:linear-gradient(135deg,#0B4F3C,#1d6b4a 55%,#6FA83A);color:#F7F8F2;border-radius:24px;padding:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:16px;box-shadow:0 14px 34px rgba(11,79,60,.25)}
+.ex-hero h2{margin:0;font-size:22px;font-weight:900;letter-spacing:-.02em}
+.ex-hero p{margin:5px 0 0;font-size:12px;opacity:.85;max-width:430px;line-height:1.55}
+.ex-seg{display:inline-flex;background:rgba(247,248,242,.16);border-radius:999px;padding:4px;gap:2px}
+.ex-seg button{border:0;background:transparent;color:#F7F8F2;font-size:11px;font-weight:800;padding:8px 14px;border-radius:999px;font-family:inherit}
+.ex-seg button.on{background:#F7F8F2;color:#0B4F3C}
+.ex-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.ex-stat{background:#fff;border:1px solid rgba(11,79,60,.12);border-radius:18px;padding:14px 16px}
+.ex-stat .ico{width:34px;height:34px;border-radius:11px;background:#E8F0DE;color:#0B4F3C;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px}
+.ex-stat b{display:block;font-size:20px;font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.ex-stat small{font-size:10px;color:#6F7D76;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.ex-grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.ex-stack{display:flex;flex-direction:column;gap:12px}
+.ex-row{display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid rgba(11,79,60,.12);border-radius:16px;background:#F7F8F2}
+.ex-row.col{flex-direction:column}
+.ex-avatar{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#A8CF67,#0B4F3C);color:#F7F8F2;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ex-grow{flex:1;min-width:0}
+.ex-name{font-size:13px;font-weight:800;margin:0}
+.ex-meta{font-size:11px;color:#6F7D76;font-weight:600;margin-top:2px}
+.ex-text{font-size:12px;line-height:1.55;color:#425C53;margin-top:6px}
+.ex-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.ex-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;border-radius:12px;padding:10px 16px;font-size:12px;font-weight:800;font-family:inherit;color:#F7F8F2;background:linear-gradient(135deg,#0B4F3C,#6FA83A);box-shadow:0 4px 14px rgba(11,79,60,.22)}
+.ex-btn:hover{filter:brightness(1.08)}
+.ex-btn.sm{padding:8px 12px;font-size:11px;border-radius:10px}
+.ex-btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid rgba(11,79,60,.25);border-radius:12px;padding:10px 14px;font-size:12px;font-weight:800;font-family:inherit;color:#0B4F3C;background:#fff}
+.ex-btn-ghost.sm{padding:8px 12px;font-size:11px;border-radius:10px}
+.ex-btn-ghost:hover{background:#E8F0DE}
+.ex-btn-danger{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid rgba(217,92,89,.4);border-radius:10px;padding:8px 12px;font-size:11px;font-weight:800;font-family:inherit;color:#D95C59;background:#fff}
+.ex-btn-danger:hover{background:rgba(217,92,89,.08)}
+.ex-chip{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:800;background:#E8F0DE;color:#0B4F3C}
+.ex-chip.warn{background:rgba(233,162,59,.18);color:#9a6414}
+.ex-chip.err{background:rgba(217,92,89,.14);color:#b03b38}
+.ex-chip.ok{background:rgba(111,168,58,.2);color:#3d6b17}
+.ex-empty{text-align:center;padding:34px 12px;color:#6F7D76;font-size:12px;font-weight:600}
+.ex-empty i{display:block;font-size:30px;opacity:.45;margin-bottom:10px}
+.ex-note{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:rgba(233,162,59,.16);color:#7a4f0c;font-size:12px;font-weight:700;margin-bottom:14px}
+/* chat */
+.ex-chat{display:grid;grid-template-columns:260px 1fr;gap:16px;min-height:540px}
+.ex-threads{display:flex;flex-direction:column;gap:8px}
+.ex-thread{display:flex;gap:10px;align-items:center;text-align:left;width:100%;padding:11px;border-radius:14px;border:1px solid rgba(11,79,60,.12);background:#fff;font-family:inherit;color:inherit}
+.ex-thread.active{border-color:#0B4F3C;background:#E8F0DE}
+.ex-pane{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(11,79,60,.12);border-radius:20px;overflow:hidden;min-height:540px}
+.ex-pane-head{padding:13px 16px;border-bottom:1px solid rgba(11,79,60,.12);display:flex;justify-content:space-between;align-items:center;gap:10px;background:#F7F8F2}
+.ex-msgs{flex:1;padding:16px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;max-height:430px;min-height:260px;background:#fbfcf8}
+.ex-bubble{max-width:78%;padding:10px 13px;border-radius:16px;font-size:12px;line-height:1.55}
+.ex-bubble small{display:block;margin-top:4px;font-size:9px;opacity:.65;font-weight:700}
+.ex-bubble.client{align-self:flex-start;background:#E8F0DE;border-bottom-left-radius:5px}
+.ex-bubble.expert{align-self:flex-end;background:linear-gradient(135deg,#0B4F3C,#2c7a4b);color:#F7F8F2;border-bottom-right-radius:5px}
+.ex-prodmsg{display:flex;gap:10px;align-items:center;padding:8px;border-radius:12px;background:rgba(247,248,242,.14);margin-top:2px}
+.ex-prodmsg .pi{width:34px;height:34px;border-radius:10px;background:#F7F8F2;color:#0B4F3C;display:flex;align-items:center;justify-content:center}
+.ex-quick{display:flex;gap:6px;overflow-x:auto;padding:10px 12px 0;scrollbar-width:none}
+.ex-quick::-webkit-scrollbar{display:none}
+.ex-quick button{flex-shrink:0;border:1px solid rgba(11,79,60,.22);background:#fff;color:#0B4F3C;border-radius:999px;padding:6px 11px;font-size:11px;font-weight:700;font-family:inherit}
+.ex-compose{display:flex;gap:8px;padding:12px}
+.ex-compose input{flex:1;border:1px solid rgba(11,79,60,.25) !important;border-radius:12px;padding:11px 13px;font-size:12px;outline:none}
+.ex-recbar{display:flex;gap:8px;padding:0 12px 12px;flex-wrap:wrap}
+.ex-recbar select{flex:1;min-width:150px;border:1px solid rgba(11,79,60,.25) !important;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:700}
+/* forms */
+.ex-label{display:block;font-size:10px;font-weight:800;color:#6FA83A;text-transform:uppercase;letter-spacing:.06em;margin:12px 0 5px}
+.ex-input{width:100%;border:1px solid rgba(11,79,60,.25) !important;border-radius:12px;padding:11px 13px;font-size:12px;outline:none;font-family:inherit}
+.ex-input:focus{border-color:#6FA83A !important}
+textarea.ex-input{min-height:96px;resize:vertical;line-height:1.55}
+/* diagnosa */
+.ex-diag{display:grid;grid-template-columns:130px 1fr;gap:14px}
+.ex-diag img{width:130px;height:130px;object-fit:cover;border-radius:16px;background:#E8F0DE}
+.ex-bar{height:8px;border-radius:999px;background:#E8F0DE;overflow:hidden;margin-top:6px}
+.ex-bar i{display:block;height:100%;background:linear-gradient(90deg,#0B4F3C,#6FA83A);border-radius:999px}
+/* earnings */
+.ex-bal{background:linear-gradient(135deg,#0B4F3C,#6FA83A);color:#F7F8F2;border-radius:22px;padding:20px;box-shadow:0 14px 34px rgba(11,79,60,.25)}
+.ex-bal small{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.ex-bal b{display:block;font-size:30px;font-weight:900;letter-spacing:-.02em;margin:4px 0 14px}
+.ex-bal .ex-btn{background:#F7F8F2;color:#0B4F3C;box-shadow:none}
+.ex-bars{display:flex;align-items:flex-end;gap:10px;height:150px;padding-top:6px}
+.ex-bars div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.ex-bars i{display:block;width:100%;max-width:38px;border-radius:9px 9px 4px 4px;background:linear-gradient(180deg,#6FA83A,#0B4F3C);min-height:4px}
+.ex-bars span{font-size:10px;font-weight:700;color:#6F7D76}
+.ex-bars b{font-size:9px;color:#425C53;font-weight:800}
+.ex-line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px dashed rgba(11,79,60,.18);font-size:12px}
+.ex-line:last-child{border-bottom:0}
+/* availability */
+.ex-avail{display:grid;grid-template-columns:70px repeat(3,1fr);gap:6px;align-items:center;font-size:11px;font-weight:700}
+.ex-avail button{border:1px solid rgba(11,79,60,.22);background:#fff;border-radius:10px;padding:8px 4px;font-size:10px;font-weight:800;font-family:inherit;color:#6F7D76}
+.ex-avail button.on{background:#0B4F3C;color:#F7F8F2;border-color:#0B4F3C}
+/* modal */
+.ex-modal{position:fixed;inset:0;z-index:120;background:rgba(24,53,44,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px}
+.ex-modal.hidden{display:none !important}
+.ex-modal-card{background:#F7F8F2;border:1px solid rgba(11,79,60,.2);border-radius:24px;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;padding:22px;box-shadow:0 30px 70px rgba(0,0,0,.3)}
+.ex-modal-card h3{margin:0;font-size:18px;font-weight:900}
+.ex-modal-card p.s{font-size:12px;color:#6F7D76;margin:4px 0 6px}
+/* login role switch */
+.ex-roles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.ex-role-btn{border:1.5px solid rgba(11,79,60,.22);background:#fff;border-radius:14px;padding:11px 10px;font-size:12px;font-weight:800;font-family:inherit;color:#425C53;display:flex;flex-direction:column;align-items:center;gap:4px}
+.ex-role-btn small{font-size:9px;font-weight:600;color:#6F7D76}
+.ex-role-btn.on{background:#0B4F3C;border-color:#0B4F3C;color:#F7F8F2}
+.ex-role-btn.on small{color:#cfe5c0}
+@media (max-width:900px){
+  .ex-stats{grid-template-columns:repeat(2,1fr)}
+  .ex-grid2{grid-template-columns:1fr}
+  .ex-chat{grid-template-columns:1fr;min-height:0}
+  .ex-threads{flex-direction:row;overflow-x:auto}
+  .ex-thread{min-width:210px}
+}
+@media (max-width:640px){
+  .ex-user-meta{display:none}
+  .ex-btn-ghost span{display:none}
+  .ex-header-inner{padding:8px 12px}
+  .ex-brand-name{font-size:16px}
+  .ex-main{padding:14px 12px 48px}
+  .ex-h1{font-size:20px}
+  .ex-hero{padding:18px}
+  .ex-hero h2{font-size:18px}
+  .ex-diag{grid-template-columns:1fr}
+  .ex-diag img{width:100%;height:170px}
+  .ex-bubble{max-width:88%}
+  .ex-stat b{font-size:17px}
+}
+
+/* Perbaikan kontras: teks tombol hijau tua tidak boleh gelap */
+.gold-gradient-btn.text-slate-950,.gold-gradient-bg.text-slate-950{color:#F7F8F2 !important}
+
 </style>
     
     <script>
@@ -164,7 +324,7 @@
 </head>
 <body class="antialiased selection:bg-amber-400 selection:text-black">
 
-    <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-700 text-slate-950 font-bold text-xs py-2 px-4 text-center flex justify-center items-center gap-3 shadow-md relative z-50">
+    <div id="user-banner" class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-700 text-slate-950 font-bold text-xs py-2 px-4 text-center flex justify-center items-center gap-3 shadow-md relative z-50">
         <span class="bg-black/20 px-2 py-0.5 rounded-full text-[10px] tracking-wider uppercase font-black">TanyaTani</span>
         <span>Gunakan kupon <strong class="underline decoration-black">GOLD2026</strong> untuk diskon 15% + Bebas Ongkir IKEA Package!</span>
         <button onclick="dailyCheckIn()" class="bg-black text-amber-300 hover:bg-slate-900 px-3 py-0.5 rounded-full text-[11px] font-black tracking-wide transition-all shadow">
@@ -274,7 +434,7 @@
     </nav>
 
     <!-- CONTENT WRAPPER -->
-    <main class="pt-28 pb-28 min-h-screen">
+    <main id="user-main" class="pt-28 pb-28 min-h-screen">
 
         <section id="home-section" class="fade-in">
             <div class="relative overflow-hidden min-h-[85vh] flex items-center border-b border-amber-500/20">
@@ -964,6 +1124,7 @@
         <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
         <h3 class="text-2xl font-black text-white mb-1" id="auth-modal-title">Sign In </h3>
         <p class="text-xs text-slate-400 mb-5" id="auth-modal-subtitle">Masuk dengan email, password, dan kode OTP.</p>
+        <div class="ex-roles"><button type="button" id="auth-role-user" class="ex-role-btn on" onclick="setAuthRole('user')"><i class="fas fa-user"></i>Pengguna<small>Belanja &amp; konsultasi</small></button><button type="button" id="auth-role-expert" class="ex-role-btn" onclick="setAuthRole('expert')"><i class="fas fa-user-md"></i>Ahli<small>Dokter &amp; pakar tanaman</small></button></div><div id="auth-expert-picker" class="hidden" style="margin-bottom:12px"><label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Akun ahli (demo)</label><select id="auth-expert-select" onchange="pickExpertForLogin(this.value)" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400"><option value="e1">Dr. Muhamad Puncak Pamungkas, M.Si</option><option value="e2">Andika Putra, S.P.</option><option value="e3">Kayla Mutia Salsabila</option><option value="e4">Zaskya Nafisha, S.P., M.Si</option><option value="e5">Salwa Kaisar Indah, S.P.</option><option value="e6">Nufi Diah Ayu, S.Ds.</option></select><p class="text-[10px] text-slate-500 mt-1">Mode demo: pilih profil ahli yang ingin dicoba. Produksi memerlukan verifikasi akun ahli oleh admin.</p></div>
         <form id="auth-form" class="space-y-3" onsubmit="submitEmailAuth(event)">
           <div><label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Email</label><input id="auth-email" type="email" autocomplete="email" required placeholder="nama@email.com" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-amber-400"></div>
           <div><label class="block text-[10px] font-bold text-amber-400 uppercase mb-1">Password</label><div class="relative"><input id="auth-password" type="password" autocomplete="current-password" minlength="6" required placeholder="Minimal 6 karakter" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 pr-10 text-xs outline-none focus:border-amber-400"><button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-2.5 text-slate-400"><i id="password-eye" class="fas fa-eye"></i></button></div></div>
@@ -978,6 +1139,41 @@
     </div>
     <div id="socialLoginModal" class="fixed inset-0 z-[110] hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
       <div class="bg-white text-slate-900 rounded-3xl w-full max-w-sm p-6 shadow-2xl text-center relative"><button onclick="toggleModal('socialLoginModal')" class="absolute top-4 right-4 text-slate-400"><i class="fas fa-times"></i></button><i id="social-provider-icon" class="fab fa-google text-3xl text-red-500"></i><h3 id="social-provider-title" class="text-xl font-black mt-3">Masuk dengan Google</h3><p class="text-xs text-slate-500 mt-2">Lanjutkan menggunakan akun penyedia yang dipilih.</p><button onclick="completeSocialLogin()" class="w-full mt-5 bg-blue-600 text-white font-black py-3 rounded-xl text-xs">Lanjutkan</button><button onclick="toggleModal('socialLoginModal')" class="w-full mt-2 text-slate-500 font-bold py-2 text-xs">Batal</button></div>
+    </div>
+
+    <!-- ===== MODE AHLI (Dashboard khusus ahli, muncul saat login sebagai Ahli) ===== -->
+    <div id="expert-app" class="hidden">
+        <header class="ex-header">
+            <div class="ex-header-inner">
+                <div class="ex-brand">
+                    <img src="logo-tanyatani.jpg" alt="Logo TanyaTani" class="ex-logo">
+                    <div>
+                        <span class="ex-brand-name">Tanya<span>Tani</span></span>
+                        <span class="ex-badge-mode"><i class="fas fa-user-md"></i> Mode Ahli</span>
+                    </div>
+                </div>
+                <div class="ex-header-right">
+                    <label class="ex-status-wrap" title="Status ketersediaan">
+                        <span class="ex-dot" id="ex-status-dot"></span>
+                        <select id="ex-status-select" onchange="exSetStatus(this.value)">
+                            <option value="online">Online</option>
+                            <option value="busy">Sibuk</option>
+                            <option value="offline">Offline</option>
+                        </select>
+                    </label>
+                    <div class="ex-user">
+                        <img id="ex-avatar" src="" alt="Foto ahli">
+                        <div class="ex-user-meta"><strong id="ex-name"></strong><small id="ex-role"></small></div>
+                    </div>
+                    <button type="button" class="ex-btn-ghost" onclick="exSignOut()" title="Keluar dari Mode Ahli"><i class="fas fa-sign-out-alt"></i><span>Keluar</span></button>
+                </div>
+            </div>
+            <nav class="ex-tabs" id="ex-tabs"></nav>
+        </header>
+        <div class="ex-main" id="ex-view"></div>
+        <div id="ex-modal" class="ex-modal hidden" onclick="if(event.target===this)exCloseModal()">
+            <div class="ex-modal-card" id="ex-modal-body"></div>
+        </div>
     </div>
 
     <!-- TOAST CONTAINER -->
@@ -1569,11 +1765,455 @@
         window.finishLogin=function(name,msg){generatedOtp='';closeAuthModal();renderAuthActions(name);showToast(msg);};
         window.signOut=function(){renderAuthActions();showToast('Anda berhasil sign out');};
 
+
+        /* =====================================================================
+           MODE AHLI — dashboard khusus ahli (login sebagai Ahli di modal Sign In)
+           Catatan: seluruh data di bawah adalah DEMO (di memori browser).
+           Produksi membutuhkan backend: autentikasi ahli terverifikasi, antrean
+           realtime (WebSocket), penyimpanan chat, dan pencairan dana.
+           ===================================================================== */
+        const EXPERTS = [
+            { id:'e1', name:'Dr. Muhamad Puncak Pamungkas, M.Si', role:'Spesialis Monstera & Hama Tropis', photo:'profil-dr-muhamad-puncak-pamungkas.png', rating:4.9, sessions:142, bio:'Pengalaman 12+ tahun menangani penyakit pembusukan akar, hama jamur, dan klorosis daun pada tanaman hias indoor.' },
+            { id:'e2', name:'Andika Putra, S.P.', role:'Pakar Nutrisi Soil & Hydroponics', photo:'profil-andika-putra.jpg', rating:5.0, sessions:98, bio:'Konsultan formula racikan pupuk mikro/makro dan penyesuaian pH tanah untuk pertumbuhan daun lebar dan rimbun.' },
+            { id:'e3', name:'Kayla Mutia Salsabila', role:'Plant Interior Specialist IKEA', photo:'profil-kayla-mutia.jpg', rating:4.8, sessions:210, bio:'Ahli penataan Plant Corner indoor rumah, memadukan jenis pot IKEA, rak SATSUMAS, dan estetika lampu pencahayaan.' },
+            { id:'e4', name:'Zaskya Nafisha, S.P., M.Si', role:'Spesialis Hama & Penyakit Daun', photo:'profil-zaskya-nafisha.jpg', rating:4.9, sessions:126, bio:'Fokus pada identifikasi hama, bercak daun, jamur, dan strategi pengendalian terpadu untuk tanaman indoor.' },
+            { id:'e5', name:'Salwa Kaisar Indah, S.P.', role:'Ahli Media Tanam & Pemupukan', photo:'profil-salwa-kaisar-indah.jpg', rating:4.8, sessions:114, bio:'Membantu menentukan komposisi media tanam, jadwal nutrisi, dan penyesuaian kebutuhan tanaman berdasarkan kondisi ruang.' },
+            { id:'e6', name:'Nufi Diah Ayu, S.Ds.', role:'Desainer Plant Corner Minimalis', photo:'profil-nufi-diah-ayu.jpg', rating:4.9, sessions:167, bio:'Memberikan rekomendasi tata letak, pencahayaan, rak, dan kombinasi tanaman untuk sudut hijau yang rapi serta fungsional.' }
+        ];
+        const EX_FEE = 35000; // honor ahli per sesi chat (50 poin pengguna)
+        const EX_TABS = [
+            { id:'dashboard', label:'Dashboard', icon:'fa-chart-line' },
+            { id:'antrean', label:'Antrean', icon:'fa-inbox' },
+            { id:'chat', label:'Chat Aktif', icon:'fa-comments' },
+            { id:'jadwal', label:'Jadwal Booking', icon:'fa-calendar-alt' },
+            { id:'diagnosa', label:'Review Diagnosa AI', icon:'fa-microscope' },
+            { id:'pendapatan', label:'Pendapatan', icon:'fa-wallet' },
+            { id:'profil', label:'Profil & Ketersediaan', icon:'fa-id-badge' }
+        ];
+        const EX_QUICK = [
+            'Boleh kirim foto akar dan batang tanamannya?',
+            'Seberapa sering tanaman disiram saat ini?',
+            'Apakah pot memiliki lubang drainase?',
+            'Dapat ditaruh di dekat jendela dengan cahaya tidak langsung.',
+            'Kurangi penyiraman dan biarkan media kering 2–3 cm di permukaan.'
+        ];
+        const EX_CLIENT_REPLIES = [
+            'Baik, saya cek dulu ya. Nanti saya kabari hasilnya.',
+            'Terima kasih penjelasannya, saya paham sekarang.',
+            'Siap, saya coba mulai hari ini ya.',
+            'Oke, kalau ada perubahan saya kabari lagi.'
+        ];
+
+        let authRole = 'user', selectedExpertId = 'e1', EX = null, exTimers = [];
+
+        const exEsc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        const exNow = () => new Date().toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' }).replace('.', ':');
+        const exISO = (off) => { const d = new Date(); d.setDate(d.getDate() + off); return d.toISOString().split('T')[0]; };
+        const exDateLabel = (iso) => new Date(iso + 'T00:00:00').toLocaleDateString('id-ID', { weekday:'long', day:'numeric', month:'long' });
+        const exInitial = (n) => (String(n).trim()[0] || '?').toUpperCase();
+        const exFirstName = (n) => String(n).replace(/^(Dr\.|Ir\.)\s*/, '').split(/[ ,]/)[0];
+        const exProd = (pid) => products.find(p => p.id === pid);
+
+        function exSeed(profile) {
+            return {
+                profile: Object.assign({}, profile),
+                status: 'online',
+                tab: 'dashboard',
+                activeThread: null,
+                queue: [
+                    { id:'q1', client:'Sarah A.', plant:'Monstera Deliciosa', issue:'Daun bagian bawah menguning dan terasa lembek sejak 3 hari lalu. Tanah selalu lembap, disiram tiap hari.', wait:'2 menit' },
+                    { id:'q2', client:'Budi Kurnia', plant:'Sirih Gading (Pothos)', issue:'Muncul bercak cokelat di tepi daun dan beberapa daun mulai menggulung.', wait:'6 menit' },
+                    { id:'q3', client:'Dewi Lestari', plant:'Sansevieria Gold', issue:'Ujung daun kering dan menghitam setelah dipindah ke balkon.', wait:'11 menit' }
+                ],
+                threads: {},
+                done: [
+                    { client:'Rina Maharani', plant:'Fiddle Leaf', amount:EX_FEE, time:'09:12' },
+                    { client:'Agus Setiawan', plant:'Kaktus Mini', amount:EX_FEE, time:'10:40' }
+                ],
+                bookings: [
+                    { id:'b1', client:'Dewi Lestari', topic:'Ujung daun Sansevieria kering', date:exISO(0), time:'14:00 WIB', status:'pending' },
+                    { id:'b2', client:'Budi Kurnia', topic:'Program pemupukan Monstera fase tumbuh', date:exISO(1), time:'10:00 WIB', status:'confirmed' },
+                    { id:'b3', client:'Rina Maharani', topic:'Kutu putih pada sirih gading', date:exISO(2), time:'19:00 WIB', status:'pending' }
+                ],
+                diagnoses: [
+                    { id:'d1', client:'Sarah A.', plant:'Monstera Deliciosa', img:'https://images.unsplash.com/photo-1614594975525-e45190c55d40?auto=format&fit=crop&w=400&q=70', ai:'Defisiensi Nitrogen & Overwatering', conf:89, status:'review' },
+                    { id:'d2', client:'Hendra W.', plant:'Ketapang Biola', img:'https://images.unsplash.com/photo-1604762512526-b7ce049b5764?auto=format&fit=crop&w=400&q=70', ai:'Bercak Daun Jamur (Cercospora)', conf:76, status:'review' },
+                    { id:'d3', client:'Lia Permata', plant:'Sansevieria', img:'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=400&q=70', ai:'Sunburn / Terbakar Matahari', conf:82, status:'review' }
+                ],
+                reviews: [
+                    { who:'Sarah A.', stars:5, text:'Penjelasannya jelas dan daun monstera saya pulih dalam seminggu. Terima kasih!' },
+                    { who:'Budi Kurnia', stars:5, text:'Rekomendasi pupuknya tepat. Sangat membantu untuk pemula.' },
+                    { who:'Dewi Lestari', stars:4, text:'Cepat merespons, semoga bisa lebih detail soal jadwal siram.' }
+                ],
+                earnings: {
+                    balance: 1245000,
+                    base: [175000, 245000, 140000, 280000, 210000, 315000],
+                    withdraws: [ { amount:500000, bank:'BCA', rek:'••••4521', date:exISO(-6), status:'Selesai' } ]
+                },
+                availability: { Sen:[1,1,0], Sel:[1,1,0], Rab:[1,0,1], Kam:[1,1,0], Jum:[1,1,1], Sab:[0,1,0], Min:[0,0,0] }
+            };
+        }
+
+        /* ---------- ENTER / EXIT ---------- */
+        window.enterExpertMode = function(expertId, silent) {
+            const p = EXPERTS.find(e => e.id === expertId) || EXPERTS[0];
+            exTimers.forEach(clearTimeout); exTimers = [];
+            EX = exSeed(p);
+            ['user-banner', 'navbar', 'user-main'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add('hidden'); });
+            ['cartModal', 'checkoutModal', 'doctorChatModal', 'doctorBookingModal', 'scheduleModal', 'imageFullscreenModal'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add('hidden'); });
+            const mm = document.getElementById('mobile-menu'); if (mm) mm.classList.add('hidden');
+            document.getElementById('expert-app').classList.remove('hidden');
+            document.getElementById('ex-avatar').src = p.photo;
+            try { localStorage.setItem('tt_expert_id', p.id); } catch (e) {}
+            window.scrollTo(0, 0);
+            exRender();
+            if (!silent) showToast('Masuk ke Mode Ahli: ' + exFirstName(p.name));
+            // simulasi permintaan konsultasi baru masuk
+            exTimers.push(setTimeout(() => {
+                if (!EX || EX.status !== 'online') return;
+                EX.queue.push({ id:'q' + Date.now(), client:'Fajar Nugroho', plant:'Lidah Mertua', issue:'Daun terlihat lunak di bagian pangkal setelah hujan deras kemarin. Perlu dipotong atau bagaimana?', wait:'baru saja' });
+                exPaintChrome(); if (EX.tab === 'antrean' || EX.tab === 'dashboard') exRender();
+                showToast('Permintaan konsultasi baru dari Fajar Nugroho');
+            }, 25000));
+        };
+        window.exSignOut = function() {
+            exTimers.forEach(clearTimeout); exTimers = [];
+            EX = null;
+            try { localStorage.removeItem('tt_expert_id'); } catch (e) {}
+            document.getElementById('expert-app').classList.add('hidden');
+            ['user-banner', 'navbar', 'user-main'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('hidden'); });
+            exCloseModal();
+            renderAuthActions();
+            showSection('home');
+            showToast('Anda keluar dari Mode Ahli');
+        };
+
+        /* ---------- LOGIN ROLE UI ---------- */
+        window.setAuthRole = function(role) {
+            authRole = role;
+            openAuthModal('signin');
+        };
+        window.pickExpertForLogin = function(id) { selectedExpertId = id; };
+        window.updateAuthRoleUI = function() {
+            const ex = authRole === 'expert';
+            document.getElementById('auth-role-user').classList.toggle('on', !ex);
+            document.getElementById('auth-role-expert').classList.toggle('on', ex);
+            document.getElementById('auth-expert-picker').classList.toggle('hidden', !ex);
+            if (ex) {
+                document.getElementById('auth-modal-title').innerText = 'Masuk sebagai Ahli';
+                document.getElementById('auth-modal-subtitle').innerText = 'Khusus ahli terverifikasi TanyaTani. Anda akan masuk ke Mode Ahli.';
+                document.getElementById('auth-submit-btn').innerText = 'Masuk ke Mode Ahli';
+                document.getElementById('auth-modal-footer').innerHTML = 'Belum terdaftar sebagai ahli? Hubungi tim TanyaTani untuk proses verifikasi.';
+            }
+        };
+        (function() {
+            const baseOpen = window.openAuthModal;
+            window.openAuthModal = function(type) {
+                if (authRole === 'expert') type = 'signin';
+                baseOpen(type);
+                updateAuthRoleUI();
+            };
+            const baseClose = window.closeAuthModal;
+            window.closeAuthModal = function() { baseClose(); authRole = 'user'; };
+            window.finishLogin = function(name, msg) {
+                generatedOtp = '';
+                if (authRole === 'expert') {
+                    document.getElementById('authModal').classList.add('hidden');
+                    document.getElementById('auth-form').reset();
+                    const id = selectedExpertId; authRole = 'user';
+                    enterExpertMode(id);
+                    return;
+                }
+                document.getElementById('authModal').classList.add('hidden');
+                renderAuthActions(name); showToast(msg);
+            };
+        })();
+
+        /* ---------- RENDER ---------- */
+        function exWaiting() { return EX ? EX.queue.length : 0; }
+        function exUnread() { return EX ? Object.values(EX.threads).reduce((s, t) => s + (t.unread || 0), 0) : 0; }
+        function exPendingBookings() { return EX ? EX.bookings.filter(b => b.status === 'pending').length : 0; }
+        function exPendingDiag() { return EX ? EX.diagnoses.filter(d => d.status === 'review').length : 0; }
+        function exTodayEarn() { return EX.done.reduce((s, d) => s + d.amount, 0); }
+        function exBadge(id) {
+            const n = id === 'antrean' ? exWaiting() : id === 'chat' ? exUnread() + 0 : id === 'jadwal' ? exPendingBookings() : id === 'diagnosa' ? exPendingDiag() : 0;
+            return n > 0 ? '<span class="ex-count">' + n + '</span>' : '';
+        }
+        function exPaintChrome() {
+            if (!EX) return;
+            const p = EX.profile;
+            document.getElementById('ex-name').innerText = p.name;
+            document.getElementById('ex-role').innerText = p.role;
+            const sel = document.getElementById('ex-status-select'); sel.value = EX.status;
+            document.getElementById('ex-status-dot').className = 'ex-dot ' + (EX.status === 'online' ? '' : EX.status);
+            document.getElementById('ex-tabs').innerHTML = EX_TABS.map(t =>
+                '<button type="button" class="ex-tab ' + (EX.tab === t.id ? 'active' : '') + '" onclick="exGo(\'' + t.id + '\')"><i class="fas ' + t.icon + '"></i>' + t.label + exBadge(t.id) + '</button>'
+            ).join('');
+        }
+        window.exGo = function(tab) { EX.tab = tab; if (tab === 'chat' && EX.activeThread && EX.threads[EX.activeThread]) EX.threads[EX.activeThread].unread = 0; exRender(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+        window.exSetStatus = function(v) {
+            EX.status = v; exRender();
+            showToast(v === 'online' ? 'Status: Online — menerima permintaan baru' : v === 'busy' ? 'Status: Sibuk — permintaan baru ditahan' : 'Status: Offline — tidak menerima permintaan');
+        };
+        function exRender() {
+            if (!EX) return;
+            exPaintChrome();
+            const views = { dashboard:exViewDashboard, antrean:exViewQueue, chat:exViewChat, jadwal:exViewSchedule, diagnosa:exViewDiag, pendapatan:exViewEarn, profil:exViewProfile };
+            document.getElementById('ex-view').innerHTML = (views[EX.tab] || exViewDashboard)();
+            if (EX.tab === 'chat') exPaintMessages();
+        }
+        const exHead = (title, sub, extra) => '<div class="ex-view-head"><div><h1 class="ex-h1">' + title + '</h1><p class="ex-sub">' + sub + '</p></div>' + (extra || '') + '</div>';
+        const exOfflineNote = () => EX.status !== 'online' ? '<div class="ex-note"><i class="fas fa-bell-slash"></i> Status Anda ' + (EX.status === 'busy' ? 'Sibuk' : 'Offline') + '. Permintaan baru tidak masuk sampai Anda kembali Online.</div>' : '';
+        const exStars = n => '<span style="color:#E9A23B;font-size:11px">' + '<i class="fas fa-star"></i>'.repeat(n) + '</span>';
+
+        /* ----- DASHBOARD ----- */
+        function exViewDashboard() {
+            const h = new Date().getHours();
+            const greet = h < 11 ? 'Selamat pagi' : h < 15 ? 'Selamat siang' : h < 19 ? 'Selamat sore' : 'Selamat malam';
+            const p = EX.profile;
+            const q = EX.queue.slice(0, 3).map(exQueueCard.bind(null, true)).join('') || '<div class="ex-empty"><i class="fas fa-check-circle"></i>Tidak ada antrean. Semua permintaan sudah ditangani.</div>';
+            const today = exISO(0);
+            const todays = EX.bookings.filter(b => b.date === today && b.status !== 'rejected');
+            const sched = todays.map(b =>
+                '<div class="ex-row"><div class="ex-avatar">' + exInitial(b.client) + '</div><div class="ex-grow"><p class="ex-name">' + exEsc(b.client) + '</p><div class="ex-meta">' + exEsc(b.time) + ' · ' + exEsc(b.topic) + '</div></div><span class="ex-chip ' + (b.status === 'confirmed' ? 'ok' : 'warn') + '">' + (b.status === 'confirmed' ? 'Terkonfirmasi' : 'Menunggu') + '</span></div>'
+            ).join('') || '<div class="ex-empty"><i class="far fa-calendar-check"></i>Tidak ada jadwal hari ini.</div>';
+            const rev = EX.reviews.map(r =>
+                '<div class="ex-row col"><div style="display:flex;justify-content:space-between;width:100%"><p class="ex-name">' + exEsc(r.who) + '</p>' + exStars(r.stars) + '</div><div class="ex-text" style="margin-top:0">' + exEsc(r.text) + '</div></div>'
+            ).join('');
+            return '' +
+            '<div class="ex-hero"><div><h2>' + greet + ', ' + exEsc(exFirstName(p.name)) + '!</h2><p>' + (exWaiting() ? 'Ada ' + exWaiting() + ' permintaan konsultasi yang menunggu jawaban Anda.' : 'Belum ada permintaan baru. Status Anda terlihat oleh pengguna di halaman Konsultasi Ahli.') + '</p></div>' +
+            '<div class="ex-seg">' + ['online','busy','offline'].map(s => '<button type="button" class="' + (EX.status === s ? 'on' : '') + '" onclick="exSetStatus(\'' + s + '\')">' + ({online:'Online',busy:'Sibuk',offline:'Offline'})[s] + '</button>').join('') + '</div></div>' +
+            exOfflineNote() +
+            '<div class="ex-stats">' +
+              '<div class="ex-stat"><div class="ico"><i class="fas fa-comments"></i></div><b>' + (EX.done.length + Object.keys(EX.threads).length) + '</b><small>Sesi hari ini</small></div>' +
+              '<div class="ex-stat"><div class="ico"><i class="fas fa-inbox"></i></div><b>' + exWaiting() + '</b><small>Antrean menunggu</small></div>' +
+              '<div class="ex-stat"><div class="ico"><i class="fas fa-wallet"></i></div><b>' + formatRupiah(exTodayEarn()) + '</b><small>Pendapatan hari ini</small></div>' +
+              '<div class="ex-stat"><div class="ico"><i class="fas fa-star"></i></div><b>' + p.rating.toFixed(1) + '</b><small>Rating (' + p.sessions + ' sesi)</small></div>' +
+            '</div>' +
+            '<div class="ex-grid2">' +
+              '<div class="ex-stack"><div class="ex-card"><div class="ex-card-title"><span><i class="fas fa-inbox"></i> Permintaan menunggu</span><button type="button" class="ex-link" onclick="exGo(\'antrean\')">Lihat semua</button></div><div class="ex-stack">' + q + '</div></div>' +
+              '<div class="ex-card"><div class="ex-card-title"><span><i class="fas fa-microscope"></i> Perlu review diagnosa AI</span><button type="button" class="ex-link" onclick="exGo(\'diagnosa\')">Buka</button></div><p class="ex-sub" style="margin:0">' + (exPendingDiag() ? exPendingDiag() + ' hasil pemindaian menunggu validasi Anda sebelum dikirim ke pengguna.' : 'Semua hasil pemindaian sudah direview.') + '</p></div></div>' +
+              '<div class="ex-stack"><div class="ex-card"><div class="ex-card-title"><span><i class="far fa-calendar-alt"></i> Jadwal hari ini</span><button type="button" class="ex-link" onclick="exGo(\'jadwal\')">Kelola</button></div><div class="ex-stack">' + sched + '</div></div>' +
+              '<div class="ex-card"><div class="ex-card-title"><span><i class="fas fa-star"></i> Ulasan terbaru</span></div><div class="ex-stack">' + rev + '</div></div></div>' +
+            '</div>';
+        }
+
+        /* ----- ANTREAN ----- */
+        function exQueueCard(compact, q) {
+            return '<div class="ex-row"><div class="ex-avatar">' + exInitial(q.client) + '</div><div class="ex-grow">' +
+                '<div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><div><p class="ex-name">' + exEsc(q.client) + '</p><div class="ex-meta">' + exEsc(q.plant) + ' · menunggu ' + exEsc(q.wait) + '</div></div><span class="ex-chip">+' + formatRupiah(EX_FEE) + '</span></div>' +
+                '<div class="ex-text">' + exEsc(compact && q.issue.length > 95 ? q.issue.slice(0, 95) + '…' : q.issue) + '</div>' +
+                '<div class="ex-actions"><button type="button" class="ex-btn sm" onclick="exAccept(\'' + q.id + '\')"><i class="fas fa-comments"></i> Terima & Mulai Chat</button><button type="button" class="ex-btn-danger" onclick="exDecline(\'' + q.id + '\')">Alihkan</button></div></div></div>';
+        }
+        function exViewQueue() {
+            return exHead('Antrean Konsultasi', 'Permintaan chat dari pengguna. Pengguna sudah membayar 50 poin; Anda menerima ' + formatRupiah(EX_FEE) + ' per sesi selesai.') + exOfflineNote() +
+                (EX.queue.length ? '<div class="ex-stack">' + EX.queue.map(exQueueCard.bind(null, false)).join('') + '</div>' : '<div class="ex-card"><div class="ex-empty"><i class="fas fa-check-circle"></i>Antrean kosong. Permintaan baru akan muncul di sini.</div></div>');
+        }
+        window.exAccept = function(id) {
+            if (EX.status !== 'online') { showToast('Ubah status ke Online untuk menerima konsultasi'); return; }
+            const i = EX.queue.findIndex(q => q.id === id); if (i < 0) return;
+            const q = EX.queue.splice(i, 1)[0];
+            EX.threads[q.id] = { id:q.id, client:q.client, plant:q.plant, unread:0, msgs:[
+                { who:'client', text:q.issue, time:exNow() },
+                { who:'expert', text:'Halo ' + exFirstName(q.client) + ', saya ' + EX.profile.name.split(',')[0] + '. Keluhan pada ' + q.plant + ' sudah saya baca. Saya mulai dengan beberapa pertanyaan ya.', time:exNow() }
+            ]};
+            EX.activeThread = q.id; EX.tab = 'chat'; exRender();
+            showToast('Sesi chat dengan ' + q.client + ' dimulai');
+        };
+        window.exDecline = function(id) {
+            EX.queue = EX.queue.filter(q => q.id !== id); exRender();
+            showToast('Permintaan dialihkan ke ahli lain');
+        };
+
+        /* ----- CHAT ----- */
+        function exViewChat() {
+            const ids = Object.keys(EX.threads);
+            if (!ids.length) return exHead('Chat Aktif', 'Percakapan yang sedang berlangsung dengan pengguna.') +
+                '<div class="ex-card"><div class="ex-empty"><i class="fas fa-comments"></i>Belum ada sesi aktif.<br><button type="button" class="ex-btn sm" style="margin-top:14px" onclick="exGo(\'antrean\')">Buka Antrean</button></div></div>';
+            if (!EX.activeThread || !EX.threads[EX.activeThread]) EX.activeThread = ids[0];
+            const t = EX.threads[EX.activeThread];
+            const list = ids.map(id => { const th = EX.threads[id]; return '<button type="button" class="ex-thread ' + (id === EX.activeThread ? 'active' : '') + '" onclick="exOpenThread(\'' + id + '\')"><div class="ex-avatar">' + exInitial(th.client) + '</div><div class="ex-grow"><p class="ex-name">' + exEsc(th.client) + '</p><div class="ex-meta">' + exEsc(th.plant) + '</div></div>' + (th.unread ? '<span class="ex-count">' + th.unread + '</span>' : '') + '</button>'; }).join('');
+            const opts = products.filter(p => ['media','tanaman','aksesori','furnitur'].includes(p.category)).map(p => '<option value="' + p.id + '">' + exEsc(p.name) + ' — ' + formatRupiah(p.price) + '</option>').join('');
+            return exHead('Chat Aktif', 'Balas pengguna, kirim rekomendasi produk, lalu akhiri sesi untuk mencatat pendapatan.') +
+                '<div class="ex-chat"><div class="ex-threads">' + list + '</div>' +
+                '<div class="ex-pane"><div class="ex-pane-head"><div style="display:flex;gap:10px;align-items:center"><div class="ex-avatar">' + exInitial(t.client) + '</div><div><p class="ex-name">' + exEsc(t.client) + '</p><div class="ex-meta">' + exEsc(t.plant) + ' · <span style="color:#6FA83A">Live</span></div></div></div><button type="button" class="ex-btn-ghost sm" onclick="exEndSession()"><i class="fas fa-check"></i> Akhiri Sesi</button></div>' +
+                '<div class="ex-msgs" id="ex-msgs"></div>' +
+                '<div class="ex-quick">' + EX_QUICK.map((m, i) => '<button type="button" onclick="exQuick(' + i + ')">' + exEsc(m.length > 38 ? m.slice(0, 38) + '…' : m) + '</button>').join('') + '</div>' +
+                '<div class="ex-compose"><input type="text" id="ex-input" placeholder="Tulis balasan untuk pengguna..." onkeydown="if(event.key===\'Enter\')exSend()"><button type="button" class="ex-btn" onclick="exSend()"><i class="fas fa-paper-plane"></i></button></div>' +
+                '<div class="ex-recbar"><select id="ex-prod">' + opts + '</select><button type="button" class="ex-btn-ghost sm" onclick="exRecommend()"><i class="fas fa-store"></i> Kirim rekomendasi produk</button></div></div></div>';
+        }
+        function exPaintMessages() {
+            const box = document.getElementById('ex-msgs'); if (!box || !EX.activeThread) return;
+            const t = EX.threads[EX.activeThread]; if (!t) return;
+            box.innerHTML = t.msgs.map(m => {
+                if (m.type === 'product') { const p = exProd(m.pid); return '<div class="ex-bubble expert">Rekomendasi produk untuk Anda:<div class="ex-prodmsg"><div class="pi"><i class="fas fa-leaf"></i></div><div><b style="font-size:12px">' + exEsc(p ? p.name : '') + '</b><div style="font-size:11px;opacity:.85">' + (p ? formatRupiah(p.price) : '') + '</div></div></div><small>' + m.time + '</small></div>'; }
+                return '<div class="ex-bubble ' + m.who + '">' + exEsc(m.text) + '<small>' + m.time + '</small></div>';
+            }).join('');
+            box.scrollTop = box.scrollHeight;
+        }
+        window.exOpenThread = function(id) { EX.activeThread = id; EX.threads[id].unread = 0; exRender(); };
+        function exPush(msg) {
+            const t = EX.threads[EX.activeThread]; if (!t) return null;
+            t.msgs.push(Object.assign({ time: exNow() }, msg)); exPaintMessages(); return t;
+        }
+        function exScheduleClientReply(threadId) {
+            exTimers.push(setTimeout(() => {
+                const t = EX && EX.threads[threadId]; if (!t) return;
+                t.msgs.push({ who:'client', text: EX_CLIENT_REPLIES[t.msgs.length % EX_CLIENT_REPLIES.length], time: exNow() });
+                if (EX.tab === 'chat' && EX.activeThread === threadId) exPaintMessages();
+                else { t.unread = (t.unread || 0) + 1; exPaintChrome(); showToast('Pesan baru dari ' + t.client); }
+            }, 1700));
+        }
+        window.exSend = function() {
+            const inp = document.getElementById('ex-input'); const text = inp.value.trim(); if (!text) return;
+            const tid = EX.activeThread; if (!exPush({ who:'expert', text })) return;
+            inp.value = ''; exScheduleClientReply(tid);
+        };
+        window.exQuick = function(i) { const inp = document.getElementById('ex-input'); inp.value = EX_QUICK[i]; inp.focus(); };
+        window.exRecommend = function() {
+            const pid = document.getElementById('ex-prod').value; const tid = EX.activeThread;
+            if (!exPush({ who:'expert', type:'product', pid })) return;
+            showToast('Rekomendasi produk terkirim'); exScheduleClientReply(tid);
+        };
+        window.exEndSession = function() {
+            const t = EX.threads[EX.activeThread]; if (!t) return;
+            exOpenModal('<h3>Akhiri sesi?</h3><p class="s">Sesi dengan ' + exEsc(t.client) + ' akan ditutup dan honor ' + formatRupiah(EX_FEE) + ' masuk ke saldo Anda.</p>' +
+                '<label class="ex-label">Catatan penutup untuk pengguna (opsional)</label><textarea class="ex-input" id="ex-close-note" placeholder="Contoh: Pantau daun 7 hari ke depan, kabari saya bila memburuk."></textarea>' +
+                '<div class="ex-actions" style="margin-top:16px"><button type="button" class="ex-btn" onclick="exConfirmEnd()"><i class="fas fa-check"></i> Akhiri & Catat Pendapatan</button><button type="button" class="ex-btn-ghost" onclick="exCloseModal()">Batal</button></div>');
+        };
+        window.exConfirmEnd = function() {
+            const id = EX.activeThread, t = EX.threads[id]; if (!t) return;
+            EX.done.unshift({ client:t.client, plant:t.plant, amount:EX_FEE, time:exNow() });
+            EX.earnings.balance += EX_FEE; EX.profile.sessions += 1;
+            delete EX.threads[id]; EX.activeThread = Object.keys(EX.threads)[0] || null;
+            exCloseModal(); exRender(); showToast('Sesi selesai. +' + formatRupiah(EX_FEE) + ' masuk ke saldo');
+        };
+
+        /* ----- JADWAL ----- */
+        function exViewSchedule() {
+            const groups = {};
+            EX.bookings.filter(b => b.status !== 'rejected').sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)).forEach(b => { (groups[b.date] = groups[b.date] || []).push(b); });
+            const html = Object.keys(groups).map(d =>
+                '<div class="ex-card"><div class="ex-card-title"><span><i class="far fa-calendar-alt"></i> ' + exEsc(exDateLabel(d)) + '</span></div><div class="ex-stack">' + groups[d].map(b =>
+                    '<div class="ex-row"><div class="ex-avatar">' + exInitial(b.client) + '</div><div class="ex-grow"><div style="display:flex;justify-content:space-between;gap:8px"><div><p class="ex-name">' + exEsc(b.client) + '</p><div class="ex-meta"><i class="far fa-clock"></i> ' + exEsc(b.time) + '</div></div><span class="ex-chip ' + (b.status === 'confirmed' ? 'ok' : 'warn') + '">' + (b.status === 'confirmed' ? 'Terkonfirmasi' : 'Menunggu persetujuan') + '</span></div><div class="ex-text">' + exEsc(b.topic) + '</div>' +
+                    '<div class="ex-actions">' + (b.status === 'pending'
+                        ? '<button type="button" class="ex-btn sm" onclick="exBooking(\'' + b.id + '\',\'confirmed\')"><i class="fas fa-check"></i> Terima</button><button type="button" class="ex-btn-ghost sm" onclick="exReschedule(\'' + b.id + '\')">Jadwalkan ulang</button><button type="button" class="ex-btn-danger" onclick="exBooking(\'' + b.id + '\',\'rejected\')">Tolak</button>'
+                        : '<button type="button" class="ex-btn sm" onclick="exStartBooked(\'' + b.id + '\')"><i class="fas fa-play"></i> Mulai Sesi</button><button type="button" class="ex-btn-ghost sm" onclick="exReschedule(\'' + b.id + '\')">Jadwalkan ulang</button>') + '</div></div></div>'
+                ).join('') + '</div></div>'
+            ).join('');
+            return exHead('Jadwal Booking', 'Pengguna yang memesan sesi konsultasi terjadwal dengan Anda.', '<button type="button" class="ex-btn-ghost" onclick="exGo(\'profil\')"><i class="far fa-clock"></i> Atur ketersediaan</button>') +
+                (html ? '<div class="ex-stack">' + html + '</div>' : '<div class="ex-card"><div class="ex-empty"><i class="far fa-calendar-check"></i>Belum ada booking.</div></div>');
+        }
+        window.exBooking = function(id, status) {
+            const b = EX.bookings.find(x => x.id === id); if (!b) return; b.status = status; exRender();
+            showToast(status === 'confirmed' ? 'Booking ' + b.client + ' diterima' : 'Booking ' + b.client + ' ditolak');
+        };
+        window.exStartBooked = function(id) {
+            const b = EX.bookings.find(x => x.id === id); if (!b) return;
+            const tid = 'bk' + id;
+            if (!EX.threads[tid]) EX.threads[tid] = { id:tid, client:b.client, plant:'Sesi terjadwal', unread:0, msgs:[{ who:'expert', text:'Halo ' + exFirstName(b.client) + ', sesi terjadwal kita dimulai. Topik: ' + b.topic + '. Silakan ceritakan kondisi terbarunya.', time:exNow() }] };
+            EX.bookings = EX.bookings.filter(x => x.id !== id); EX.activeThread = tid; EX.tab = 'chat'; exRender(); showToast('Sesi terjadwal dimulai');
+        };
+        window.exReschedule = function(id) {
+            const b = EX.bookings.find(x => x.id === id); if (!b) return;
+            exOpenModal('<h3>Jadwalkan ulang</h3><p class="s">' + exEsc(b.client) + ' akan diberi tahu tentang jadwal baru.</p>' +
+                '<label class="ex-label">Tanggal</label><input type="date" class="ex-input" id="ex-rs-date" value="' + b.date + '">' +
+                '<label class="ex-label">Waktu</label><select class="ex-input" id="ex-rs-time">' + ['10:00 WIB','14:00 WIB','19:00 WIB'].map(t => '<option ' + (t === b.time ? 'selected' : '') + '>' + t + '</option>').join('') + '</select>' +
+                '<div class="ex-actions" style="margin-top:16px"><button type="button" class="ex-btn" onclick="exSaveReschedule(\'' + id + '\')">Simpan jadwal baru</button><button type="button" class="ex-btn-ghost" onclick="exCloseModal()">Batal</button></div>');
+        };
+        window.exSaveReschedule = function(id) {
+            const b = EX.bookings.find(x => x.id === id); if (!b) return;
+            const d = document.getElementById('ex-rs-date').value; if (!d) { showToast('Pilih tanggal terlebih dahulu'); return; }
+            b.date = d; b.time = document.getElementById('ex-rs-time').value; b.status = 'confirmed'; exCloseModal(); exRender(); showToast('Jadwal diperbarui');
+        };
+
+        /* ----- REVIEW DIAGNOSA AI ----- */
+        const EX_DIAG_OPTIONS = ['Defisiensi Nitrogen', 'Overwatering / Akar Busuk', 'Bercak Daun Jamur', 'Hama Kutu Putih / Tungau', 'Sunburn / Terbakar Matahari', 'Kekurangan Cahaya', 'Tanaman Sehat / Normal'];
+        function exViewDiag() {
+            const pending = EX.diagnoses.filter(d => d.status === 'review'), done = EX.diagnoses.filter(d => d.status !== 'review');
+            const card = d => '<div class="ex-card"><div class="ex-diag"><img src="' + d.img + '" alt="Foto daun ' + exEsc(d.plant) + '"><div><div style="display:flex;justify-content:space-between;gap:8px"><div><p class="ex-name">' + exEsc(d.plant) + '</p><div class="ex-meta">Dikirim oleh ' + exEsc(d.client) + '</div></div>' +
+                (d.status === 'review' ? '<span class="ex-chip warn">Perlu review</span>' : '<span class="ex-chip ok">' + (d.status === 'approved' ? 'Disetujui' : 'Dikoreksi') + '</span>') + '</div>' +
+                '<div class="ex-text"><b>Hasil AI:</b> ' + exEsc(d.ai) + '</div><div class="ex-meta" style="margin-top:8px">Tingkat keyakinan AI ' + d.conf + '%</div><div class="ex-bar"><i style="width:' + d.conf + '%"></i></div>' +
+                (d.status === 'review' ? '<div class="ex-actions"><button type="button" class="ex-btn sm" onclick="exApproveDiag(\'' + d.id + '\')"><i class="fas fa-check"></i> Setujui</button><button type="button" class="ex-btn-ghost sm" onclick="exCorrectDiag(\'' + d.id + '\')"><i class="fas fa-pen"></i> Koreksi</button></div>'
+                    : '<div class="ex-text"><b>Keputusan ahli:</b> ' + exEsc(d.final) + (d.note ? '<br><b>Saran:</b> ' + exEsc(d.note) : '') + '</div>') + '</div></div></div>';
+            return exHead('Review Diagnosa AI', 'Validasi atau koreksi hasil AI Leaf Scanner sebelum diteruskan ke pengguna.') +
+                (pending.length ? '<div class="ex-stack">' + pending.map(card).join('') + '</div>' : '<div class="ex-card"><div class="ex-empty"><i class="fas fa-check-circle"></i>Semua hasil pemindaian sudah direview.</div></div>') +
+                (done.length ? '<h3 class="ex-card-title" style="margin:22px 0 10px"><span><i class="fas fa-history"></i> Sudah direview</span></h3><div class="ex-stack">' + done.map(card).join('') + '</div>' : '');
+        }
+        window.exApproveDiag = function(id) {
+            const d = EX.diagnoses.find(x => x.id === id); if (!d) return; d.status = 'approved'; d.final = d.ai; exRender(); showToast('Diagnosa disetujui dan dikirim ke ' + d.client);
+        };
+        window.exCorrectDiag = function(id) {
+            const d = EX.diagnoses.find(x => x.id === id); if (!d) return;
+            exOpenModal('<h3>Koreksi diagnosa</h3><p class="s">Hasil AI: ' + exEsc(d.ai) + '</p><label class="ex-label">Diagnosa yang benar</label><select class="ex-input" id="ex-dg-final">' + EX_DIAG_OPTIONS.map(o => '<option>' + o + '</option>').join('') + '</select>' +
+                '<label class="ex-label">Saran penanganan untuk pengguna</label><textarea class="ex-input" id="ex-dg-note" placeholder="Contoh: Pindahkan ke tempat teduh dan siram setelah media kering."></textarea>' +
+                '<div class="ex-actions" style="margin-top:16px"><button type="button" class="ex-btn" onclick="exSaveCorrection(\'' + id + '\')">Kirim koreksi</button><button type="button" class="ex-btn-ghost" onclick="exCloseModal()">Batal</button></div>');
+        };
+        window.exSaveCorrection = function(id) {
+            const d = EX.diagnoses.find(x => x.id === id); if (!d) return;
+            d.status = 'corrected'; d.final = document.getElementById('ex-dg-final').value; d.note = document.getElementById('ex-dg-note').value.trim();
+            exCloseModal(); exRender(); showToast('Koreksi dikirim ke ' + d.client);
+        };
+
+        /* ----- PENDAPATAN ----- */
+        function exViewEarn() {
+            const e = EX.earnings, days = ['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+            const vals = e.base.concat([exTodayEarn()]); const max = Math.max.apply(null, vals) || 1;
+            const bars = vals.map((v, i) => { const d = new Date(); d.setDate(d.getDate() - (vals.length - 1 - i)); return '<div><b>' + (v / 1000) + 'rb</b><i style="height:' + Math.max(4, Math.round(v / max * 100)) + '%"></i><span>' + (i === vals.length - 1 ? 'Hari ini' : days[d.getDay()]) + '</span></div>'; }).join('');
+            const log = EX.done.map(d => '<div class="ex-line"><div><b>' + exEsc(d.client) + '</b><div class="ex-meta">' + exEsc(d.plant) + ' · ' + d.time + '</div></div><b style="color:#3d6b17">+' + formatRupiah(d.amount) + '</b></div>').join('') || '<div class="ex-empty">Belum ada sesi selesai hari ini.</div>';
+            const wd = e.withdraws.map(w => '<div class="ex-line"><div><b>' + formatRupiah(w.amount) + '</b><div class="ex-meta">' + exEsc(w.bank) + ' ' + exEsc(w.rek) + ' · ' + exEsc(exDateLabel(w.date)) + '</div></div><span class="ex-chip ' + (w.status === 'Selesai' ? 'ok' : 'warn') + '">' + w.status + '</span></div>').join('') || '<div class="ex-empty">Belum ada penarikan.</div>';
+            return exHead('Pendapatan', 'Honor ' + formatRupiah(EX_FEE) + ' per sesi chat selesai. Saldo dapat ditarik ke rekening bank.') +
+                '<div class="ex-grid2"><div class="ex-stack"><div class="ex-bal"><small>Saldo dapat ditarik</small><b>' + formatRupiah(e.balance) + '</b><button type="button" class="ex-btn" onclick="exWithdraw()"><i class="fas fa-arrow-down"></i> Tarik Saldo</button></div>' +
+                '<div class="ex-card"><div class="ex-card-title"><span><i class="fas fa-chart-line"></i> 7 hari terakhir</span></div><div class="ex-bars">' + bars + '</div></div></div>' +
+                '<div class="ex-stack"><div class="ex-card"><div class="ex-card-title"><span><i class="fas fa-receipt"></i> Sesi selesai hari ini</span></div>' + log + '</div>' +
+                '<div class="ex-card"><div class="ex-card-title"><span><i class="fas fa-university"></i> Riwayat penarikan</span></div>' + wd + '</div></div></div>';
+        }
+        window.exWithdraw = function() {
+            exOpenModal('<h3>Tarik saldo</h3><p class="s">Saldo tersedia ' + formatRupiah(EX.earnings.balance) + '. Minimal penarikan Rp 100.000.</p>' +
+                '<label class="ex-label">Bank</label><select class="ex-input" id="ex-wd-bank"><option>BCA</option><option>BNI</option><option>BRI</option><option>Mandiri</option></select>' +
+                '<label class="ex-label">Nomor rekening</label><input type="text" inputmode="numeric" class="ex-input" id="ex-wd-rek" placeholder="Contoh: 1234567890">' +
+                '<label class="ex-label">Jumlah (Rp)</label><input type="number" class="ex-input" id="ex-wd-amt" placeholder="100000" min="100000">' +
+                '<div class="ex-actions" style="margin-top:16px"><button type="button" class="ex-btn" onclick="exConfirmWithdraw()">Ajukan penarikan</button><button type="button" class="ex-btn-ghost" onclick="exCloseModal()">Batal</button></div>');
+        };
+        window.exConfirmWithdraw = function() {
+            const amt = parseInt(document.getElementById('ex-wd-amt').value, 10), rek = document.getElementById('ex-wd-rek').value.replace(/\D/g, ''), bank = document.getElementById('ex-wd-bank').value;
+            if (rek.length < 6) { showToast('Nomor rekening belum valid'); return; }
+            if (!amt || amt < 100000) { showToast('Minimal penarikan Rp 100.000'); return; }
+            if (amt > EX.earnings.balance) { showToast('Jumlah melebihi saldo'); return; }
+            EX.earnings.balance -= amt; EX.earnings.withdraws.unshift({ amount:amt, bank, rek:'••••' + rek.slice(-4), date:exISO(0), status:'Diproses' });
+            exCloseModal(); exRender(); showToast('Penarikan ' + formatRupiah(amt) + ' diajukan');
+        };
+
+        /* ----- PROFIL ----- */
+        function exViewProfile() {
+            const p = EX.profile, slots = ['Pagi','Siang','Malam'];
+            const rows = Object.keys(EX.availability).map(d => '<span>' + d + '</span>' + EX.availability[d].map((on, i) => '<button type="button" class="' + (on ? 'on' : '') + '" onclick="exToggleSlot(\'' + d + '\',' + i + ')">' + slots[i] + '</button>').join('')).join('');
+            return exHead('Profil & Ketersediaan', 'Informasi ini tampil di kartu ahli pada halaman Konsultasi Ahli.') +
+                '<div class="ex-grid2"><div class="ex-card"><div style="display:flex;gap:14px;align-items:center;margin-bottom:6px"><img src="' + p.photo + '" alt="Foto ahli" style="width:72px;height:72px;border-radius:18px;object-fit:cover;object-position:top;border:2px solid #A8CF67"><div><p class="ex-name" style="font-size:15px">' + exEsc(p.name) + '</p><div class="ex-meta">' + exStars(5) + ' ' + p.rating.toFixed(1) + ' · ' + p.sessions + ' sesi</div></div></div>' +
+                '<label class="ex-label">Spesialisasi</label><input class="ex-input" id="ex-pf-role" value="' + exEsc(p.role) + '">' +
+                '<label class="ex-label">Tentang saya</label><textarea class="ex-input" id="ex-pf-bio">' + exEsc(p.bio) + '</textarea>' +
+                '<label class="ex-label">Tarif konsultasi</label><div class="ex-row" style="align-items:center"><div class="ex-grow"><b style="font-size:12px">50 poin / sesi chat</b><div class="ex-meta">Honor Anda ' + formatRupiah(EX_FEE) + ' per sesi (ditetapkan TanyaTani)</div></div><i class="fas fa-lock" style="color:#6F7D76"></i></div>' +
+                '<div class="ex-actions" style="margin-top:16px"><button type="button" class="ex-btn" onclick="exSaveProfile()"><i class="fas fa-save"></i> Simpan perubahan</button></div></div>' +
+                '<div class="ex-card"><div class="ex-card-title"><span><i class="far fa-clock"></i> Jam ketersediaan mingguan</span></div><p class="ex-sub" style="margin:0 0 12px">Hanya slot aktif yang bisa dipesan pengguna untuk sesi terjadwal.</p><div class="ex-avail">' + rows + '</div></div></div>';
+        }
+        window.exToggleSlot = function(d, i) { EX.availability[d][i] = EX.availability[d][i] ? 0 : 1; exRender(); };
+        window.exSaveProfile = function() {
+            const role = document.getElementById('ex-pf-role').value.trim(), bio = document.getElementById('ex-pf-bio').value.trim();
+            if (!role) { showToast('Spesialisasi tidak boleh kosong'); return; }
+            EX.profile.role = role; EX.profile.bio = bio; exPaintChrome(); showToast('Profil ahli diperbarui');
+        };
+
+        /* ----- MODAL ----- */
+        function exOpenModal(html) { document.getElementById('ex-modal-body').innerHTML = html; document.getElementById('ex-modal').classList.remove('hidden'); }
+        window.exCloseModal = function() { const m = document.getElementById('ex-modal'); if (m) m.classList.add('hidden'); };
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') exCloseModal(); });
+
         document.addEventListener('DOMContentLoaded', () => {
             window.renderProducts();
             window.renderCalendarPills();
             window.renderCommunityFeed();
             window.renderCartRecommendations();
+            try { const sid = localStorage.getItem('tt_expert_id'); if (sid) enterExpertMode(sid, true); } catch (e) {}
         });
     </script>
 </body>
